@@ -694,10 +694,13 @@ redips.init = function () {
 
           if (b2Cell[i].previousSibling.className == "ch") {
             targetChgCell = b2Cell[i].previousSibling;
-            targetCellRank = b2Cell[i].nextSibling.innerHTML + "e";
+            if (b2Cell[i].nextSibling.innerHTML == "J") targetCellRank = "J";
+            else targetCellRank = b2Cell[i].nextSibling.innerHTML + "e";
           } else if (b2Cell[i].nextSibling.className == "ch") {
             targetChgCell = b2Cell[i].nextSibling;
-            targetCellRank = b2Cell[i].previousSibling.innerHTML + "w";
+            if (b2Cell[i].previousSibling.innerHTML == "J")
+              targetCellRank = "J";
+            else targetCellRank = b2Cell[i].previousSibling.innerHTML + "w";
           }
 
           thisChg = getChange(thisRank, targetCellRank);
