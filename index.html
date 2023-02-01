@@ -11,10 +11,10 @@
       type="text/javascript"
       src="https://momentjs.com/downloads/moment.js"
     ></script>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
     <script type="text/javascript" src="script.js"></script>
     <script async defer src="https://apis.google.com/js/api.js"></script>
     <script async defer src="https://accounts.google.com/gsi/client"></script>
-    <link rel="stylesheet" href="styles.css" type="text/css" />
     <title>GTB Helper</title>
   </head>
   <body>
@@ -33,7 +33,8 @@
         <li>Multiple rikishi can occupy a single slot in the new banzuke</li>
         <li>
           Click on individual rikishi's rank change to run a SumoDB query with
-          the rikishi's <br />
+          the rikishi's
+          <br />
           current rank, number of wins and the new rank that will be
           highlighted.
         </li>
@@ -43,8 +44,9 @@
           so it will not reset when you refresh the page or close the browser
         </li>
       </ul>
-      <div id="doubleClickOptions">
-        <b>Double-click on rikishi</b><br />
+      <div id="options">
+        <b>Double-click on rikishi</b>
+        <br />
         <label
           ><input
             type="radio"
@@ -54,7 +56,8 @@
             value="openRikishiPage"
           />
           Open Rikishi Information page</label
-        ><br />
+        >
+        <br />
         <label
           ><input
             type="radio"
@@ -64,7 +67,42 @@
             value="returnToOld"
           />
           Return it to the old banzuke</label
-        ><br />
+        >
+        <br />
+        <label
+          ><input
+            type="radio"
+            class="checkbox"
+            name="onDoubleClick"
+            onclick="saveRadio(this)"
+            value="doNothing"
+          />
+          Do nothing</label
+        >
+        <br />
+        <b>Dropping on an occupied slot</b>
+        <br />
+        <label title=""
+          ><input
+            type="radio"
+            class="checkbox"
+            name="dropMode"
+            onclick="saveDropRadio(this)"
+            value="multiple"
+          />
+          Stack</label
+        >
+        <label title="Make room and lower rikishi below by one slot"
+          ><input
+            type="radio"
+            class="checkbox"
+            name="dropMode"
+            onclick="saveDropRadio(this)"
+            value="shift"
+          />
+          Shift</label
+        >
+        <br />
         <button id="resetBanzuke" onclick="redips.resetBanzuke()">
           Reset Changes
         </button>
@@ -486,16 +524,6 @@
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>M18</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
-                  </tr>
-                  <tr>
-                    <th class="divider" colspan="5"></th>
-                  </tr>
-                  <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
-                    <th>J</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>

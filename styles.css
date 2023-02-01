@@ -18,9 +18,11 @@ header {
   margin-right: 4%;
   margin-bottom: 30px;
   color: #181818;
-  border: 2px solid #8080a4;
-  box-shadow: 0 0 8px #8c8c8c;
+  border: 10px solid;
+  border-color: #ffffff85 #00000029 #0000003d #ffffff5e;
   padding-right: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px #8c8c8c;
 }
 
 h1 {
@@ -59,9 +61,10 @@ ul {
   display: inline-block;
   margin-right: 5%;
   margin-top: 0;
+  float: left;
 }
 
-#doubleClickOptions {
+#options {
   font-size: 10pt;
   line-height: 20pt;
   display: inline-block;
