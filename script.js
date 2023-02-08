@@ -425,7 +425,8 @@ window.onload = function () {
 
   if (radioLocalDrop === null || radioLocalDrop == "multiple")
     radioButton[3].checked = true;
-  else radioButton[4].checked = true;
+  else if (radioLocalDrop == "shift") radioButton[4].checked = true;
+  else radioButton[5].checked = true;
 
   function writeTableTitles(endedBashoDate) {
     var bashoYear = parseInt(endedBashoDate.substring(0, 4)),
@@ -547,6 +548,9 @@ function saveRadio(radioButton) {
 }
 
 function saveDropRadio(button) {
+  if (button.value == "disable") rd.dropMode = "single";
+  else rd.dropMode = "multiple";
+
   window.localStorage.setItem("radioDrop", button.value);
 }
 
@@ -556,12 +560,17 @@ rd.animation = "off";
 
 redips.init = function () {
   rd.init();
-  rd.hover.colorTd = "yellow";
+  rd.hover.colorTd = "chartreuse";
   //rd.hover.borderTd = "2px solid blue";
-  rd.dropMode = "multiple";
+  //rd.dropMode = "multiple";
   rd.only.divClass.se = "b2";
 
   rd.enableDrag(false, ".intai");
+
+  var radioDrop = document.getElementsByName("dropMode");
+
+  if (radioDrop[2].checked) rd.dropMode = "single";
+  else rd.dropMode = "multiple";
 
   for (var i = 0; i < theSekitori.length; i++) {
     if (theSekitori[i] !== "") {
@@ -569,6 +578,16 @@ redips.init = function () {
       rd.only.div[rank] = rank;
     }
   }
+
+  rd.event.changed = function (currentCell) {
+    if (
+      currentCell.children.length > 0 &&
+      currentCell !== rd.obj.parentNode &&
+      window.localStorage.getItem("radioDrop") == "shift"
+    ) {
+      rd.hover.colorTd = "yellow";
+    } else rd.hover.colorTd = "chartreuse";
+  };
 
   rd.event.dblClicked = function () {
     var radioButton = document.getElementsByTagName("input");
@@ -621,12 +640,12 @@ redips.init = function () {
   };
 
   rd.event.clicked = function (currentCell) {
-    currentCell.style.backgroundColor = "lightblue";
+    currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
   };
 
   rd.event.notMoved = function () {
     var currentCell = rd.findParent("TD", rd.obj);
-    currentCell.style.removeProperty("background-color");
+    currentCell.style.removeProperty("box-shadow");
   };
 
   rd.event.droppedBefore = function (targetCell) {
@@ -636,7 +655,7 @@ redips.init = function () {
       currentChgCell,
       dropRadio = document.getElementsByName("dropMode");
 
-    currentCell.style.removeProperty("background-color");
+    currentCell.style.removeProperty("box-shadow");
 
     if (
       !currentCell.classList.contains("b2") &&

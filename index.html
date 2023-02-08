@@ -102,6 +102,16 @@
           />
           Shift</label
         >
+        <label title="Don't drop to occupied slot"
+          ><input
+            type="radio"
+            class="checkbox"
+            name="dropMode"
+            onclick="saveDropRadio(this)"
+            value="disable"
+          />
+          Disable</label
+        >
         <br />
         <button id="resetBanzuke" onclick="redips.resetBanzuke()">
           Reset Changes
@@ -133,32 +143,32 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="san">
+                  <tr class="ygroup">
                     <td class="redips-only Y1e"></td>
                     <th>Y1</th>
                     <td class="redips-only Y1w"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="ogroup">
                     <td class="redips-only O1e"></td>
                     <th>O1</th>
                     <td class="redips-only O1w"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="sgroup">
                     <td class="redips-only S1e"></td>
                     <th>S1</th>
                     <td class="redips-only S1w"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="sgroup">
                     <td class="redips-only S2e"></td>
                     <th>S2</th>
                     <td class="redips-only S2w"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="kgroup">
                     <td class="redips-only K1e"></td>
                     <th>K1</th>
                     <td class="redips-only K1w"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="kgroup">
                     <td class="redips-only K2e"></td>
                     <th>K2</th>
                     <td class="redips-only K2w"></td>
@@ -337,63 +347,63 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="san">
+                  <tr class="ygroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>Y1</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="ygroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>Y2</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="ogroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>O1</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="ogroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>O2</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="ogroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>O3</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="sgroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>S1</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="sgroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>S2</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="kgroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>K1</th>
                     <td class="redips-only b2"></td>
                     <td class="ch"></td>
                   </tr>
-                  <tr class="san">
+                  <tr class="kgroup">
                     <td class="ch"></td>
                     <td class="redips-only b2"></td>
                     <th>K2</th>
