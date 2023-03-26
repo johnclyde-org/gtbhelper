@@ -1462,7 +1462,7 @@ REDIPS.drag = (function () {
     mark: Fa,
     style: {
       borderEnabled: "solid",
-      borderDisabled: "dotted",
+      borderDisabled: "solid",
       opacityDisabled: "",
       rowEmptyColor: "white",
     },

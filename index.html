@@ -33,89 +33,124 @@
         <li>Multiple rikishi can occupy a single slot in the new banzuke</li>
         <li>
           Click on individual rikishi's rank change to run a SumoDB query with
-          the rikishi's
-          <br />
-          current rank, number of wins and the new rank that will be
-          highlighted.
+          the rikishi's current rank, number of wins and the new rank that will
+          be highlighted.
         </li>
         <li>
           Your every move is automatically saved to the browser's local storage
-          <br />
           so it will not reset when you refresh the page or close the browser
         </li>
       </ul>
       <div id="options">
-        <b>Double-click on rikishi</b>
-        <br />
-        <label
-          ><input
-            type="radio"
-            class="checkbox"
-            name="onDoubleClick"
-            onclick="saveRadio(this)"
-            value="openRikishiPage"
-          />
-          Open Rikishi Information page</label
-        >
-        <br />
-        <label
-          ><input
-            type="radio"
-            class="checkbox"
-            name="onDoubleClick"
-            onclick="saveRadio(this)"
-            value="returnToOld"
-          />
-          Return it to the old banzuke</label
-        >
-        <br />
-        <label
-          ><input
-            type="radio"
-            class="checkbox"
-            name="onDoubleClick"
-            onclick="saveRadio(this)"
-            value="doNothing"
-          />
-          Do nothing</label
-        >
-        <br />
-        <b>Dropping on an occupied slot</b>
-        <br />
-        <label title=""
-          ><input
-            type="radio"
-            class="checkbox"
-            name="dropMode"
-            onclick="saveDropRadio(this)"
-            value="multiple"
-          />
-          Stack</label
-        >
-        <label title="Make room and lower rikishi below by one slot"
-          ><input
-            type="radio"
-            class="checkbox"
-            name="dropMode"
-            onclick="saveDropRadio(this)"
-            value="shift"
-          />
-          Shift</label
-        >
-        <label title="Don't drop to occupied slot"
-          ><input
-            type="radio"
-            class="checkbox"
-            name="dropMode"
-            onclick="saveDropRadio(this)"
-            value="disable"
-          />
-          Disable</label
-        >
-        <br />
-        <button id="resetBanzuke" onclick="redips.resetBanzuke()">
-          Reset Changes
-        </button>
+        <fieldset class="option">
+          <legend>Double-click on rikishi</legend>
+          <label
+            ><input
+              type="radio"
+              class="checkbox"
+              name="onDoubleClick"
+              onclick="saveRadio(this)"
+              value="openRikishiPage"
+            />
+            Open Rikishi Information page</label
+          >
+          <br />
+          <label
+            ><input
+              type="radio"
+              class="checkbox"
+              name="onDoubleClick"
+              onclick="saveRadio(this)"
+              value="returnToOld"
+            />
+            Return it to the old banzuke</label
+          >
+          <br />
+          <label
+            ><input
+              type="radio"
+              class="checkbox"
+              name="onDoubleClick"
+              onclick="saveRadio(this)"
+              value="doNothing"
+            />
+            Do nothing</label
+          >
+        </fieldset>
+        <fieldset class="option">
+          <legend>Dropping on an occupied slot</legend>
+          <label title=""
+            ><input
+              type="radio"
+              class="checkbox"
+              name="dropMode"
+              onclick="saveDropRadio(this)"
+              value="multiple"
+            />
+            Stack</label
+          >
+          <label title="Make room and lower rikishi below by one slot"
+            ><input
+              type="radio"
+              class="checkbox"
+              name="dropMode"
+              onclick="saveDropRadio(this)"
+              value="shift"
+            />
+            Shift</label
+          >
+          <label title="Don't drop to occupied slot"
+            ><input
+              type="radio"
+              class="checkbox"
+              name="dropMode"
+              onclick="saveDropRadio(this)"
+              value="disable"
+            />
+            Disable</label
+          >
+        </fieldset>
+        <fieldset id="hoshitori" class="option">
+          <legend>
+            <label
+              ><input id="hoshiCheckbox" type="checkbox" name="checkbox" />
+              Hover over rikishi to highlight his opponents</label
+            >
+          </legend>
+          Explanation
+          <div class="hoshitoriLegend" style="border: 2px solid black">Win</div>
+          <div class="hoshitoriLegend" style="border: 2px solid red">Loss</div>
+          <div class="hoshitoriLegend" style="border: 2px dashed black">
+            Win by fusen
+          </div>
+          <div class="hoshitoriLegend" style="border: 2px dashed red">
+            Loss by fusen
+          </div>
+          <div
+            class="hoshitoriLegend"
+            style="
+              border: 1px solid #00000082;
+              outline: 2px solid black;
+              outline-offset: 2px;
+              line-height: 15px;
+              padding: 0 3px;
+            "
+          >
+            Win in play-off
+          </div>
+          <div
+            class="hoshitoriLegend"
+            style="
+              border: 1px solid #00000082;
+              outline: 2px solid red;
+              outline-offset: 2px;
+              line-height: 15px;
+              padding: 0 3px;
+            "
+          >
+            Loss in play-off
+          </div>
+        </fieldset>
       </div>
       <div id="saveLoadProgress">
         <button id="signinButton">Sign in with Google</button>
@@ -124,6 +159,9 @@
         <button id="loadSave">Load last saved banzuke</button>
         <span id="messageLine"></span>
         <span id="progressText">Please wait...</span>
+        <button id="resetBanzuke" onclick="redips.resetBanzuke()">
+          Reset Changes
+        </button>
       </div>
     </header>
     <div id="redips-drag">
@@ -253,6 +291,11 @@
                     <td class="redips-only M16e"></td>
                     <th>M16</th>
                     <td class="redips-only M16w"></td>
+                  </tr>
+                  <tr>
+                    <td class="redips-only M17e"></td>
+                    <th>M17</th>
+                    <td class="redips-only M17w"></td>
                   </tr>
                   <tr>
                     <th class="divider" colspan="3"></th>
