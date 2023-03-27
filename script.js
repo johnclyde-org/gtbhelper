@@ -1487,6 +1487,15 @@ let redips = {},
   rd = REDIPS.drag;
 
 window.onload = function () {
+  $(function () {
+    $(".wrapper1").scroll(function () {
+      $(".wrapper2").scrollLeft($(".wrapper1").scrollLeft());
+    });
+    $(".wrapper2").scroll(function () {
+      $(".wrapper1").scrollLeft($(".wrapper2").scrollLeft());
+    });
+  });
+
   var basho = "202303"; // The date of the basho just ended
 
   var CLIENT_ID =
