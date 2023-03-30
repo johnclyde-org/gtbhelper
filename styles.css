@@ -103,16 +103,11 @@ legend {
   font-size: 13px;
   border-radius: 3px;
   background-color: #d9ff9f;
-  height: 18px;
+  height: 15px;
   display: inline-block;
-  text-shadow: 1px 1px #ffffff82;
-  box-sizing: border-box;
-  line-height: 15px;
-  padding: 0 2px;
+  padding: 0 3px;
   margin-left: 5px;
-  box-shadow:
-    -2px -2px inset #0000002b,
-    2px 2px inset #ffffff82;
+  line-height: 16px;
 }
 
 #resetBanzuke {
@@ -213,7 +208,8 @@ td {
 }
 
 .b2 {
-  border: 1px dashed dimgray;
+  /*border: 1px dashed dimgray;*/
+  box-shadow: 0 0 0 2px inset #00000029;
 }
 
 .theader th {
@@ -238,7 +234,7 @@ th {
   background-color: transparent !important;
   font-size: 10pt;
   min-width: 35px;
-  line-height: 13pt;
+  line-height: 18px;
   text-align: center;
   color: blue;
   border: solid dimgray;
@@ -296,19 +292,14 @@ td span {
 td .redips-drag,
 .redips-nodrag {
   /*background: linear-gradient(rgba(255, 255, 255, 0.75), transparent 15%, transparent 85%, rgba(0, 0, 0, 0.25));*/
+  /*text-shadow: 1px 1px #ffffff7d;*/
   text-align: justify;
-  width: 195px;
-  height: 18px;
+  width: 187px;
+  height: 15px;
   border-radius: 3px;
   padding: 0 3px;
-  padding-left: 3px;
-  padding-right: 3px;
   margin: auto;
-  text-shadow: 1px 1px #ffffff82;
-  border: 1px solid #00000082;
-  box-sizing: border-box;
-  line-height: 17px;
-  /*box-shadow: -2px -2px inset #0000002b, 2px 2px inset #ffffff82;*/
+  border: 2px outset #84848491;
   outline-offset: 2px;
 }
 

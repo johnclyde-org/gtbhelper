@@ -1461,9 +1461,7 @@ REDIPS.drag = (function () {
     only: pa,
     mark: Fa,
     style: {
-      borderEnabled: "solid",
-      borderDisabled: "solid",
-      opacityDisabled: "",
+      /*borderEnabled:"solid",borderDisabled:"solid",*/ opacityDisabled: "",
       rowEmptyColor: "white",
     },
     trash: { className: "redips-trash", question: null, questionRow: null },

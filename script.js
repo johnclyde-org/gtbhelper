@@ -1928,6 +1928,8 @@ window.onload = function () {
 
         cell[i].appendChild(holder);
         cell[i].appendChild(card);
+
+        cell[i].style.boxShadow = "0 0 0 2px inset #00000029";
       }
     }
   }
@@ -1940,9 +1942,7 @@ function showHoshitori(i) {
   ) {
     var rikishiCard = document.querySelectorAll(".redips-drag");
 
-    event.target.style.border = "2px dotted black";
-    event.target.style.lineHeight = "16px";
-    event.target.style.padding = "0 2px";
+    event.target.style.border = "2px solid blue";
     if (hoshitori[i].record.length > 0) {
       for (var j = 0; j < hoshitori[i].record.length; j++) {
         for (var k = 0; k < rikishiCard.length; k++) {
@@ -1973,8 +1973,6 @@ function showHoshitori(i) {
                 ketteisenBoutColor = "2px solid black";
             }
             if (honwariBoutColor != "") {
-              rikishiCard[k].style.lineHeight = "16px";
-              rikishiCard[k].style.padding = "0 2px";
               rikishiCard[k].style.border = honwariBoutColor;
             } else {
               rikishiCard[k].style.outline = ketteisenBoutColor;
@@ -1993,8 +1991,6 @@ function hideHoshitori() {
     for (var j = 0; j < rikishiCard.length; j++) {
       if (rikishiCard[j].style.border != "") {
         rikishiCard[j].style.border = "";
-        rikishiCard[j].style.padding = "";
-        rikishiCard[j].style.lineHeight = "";
       }
       if (rikishiCard[j].style.outline != "") rikishiCard[j].style.outline = "";
     }
@@ -2040,9 +2036,9 @@ redips.init = function () {
   rd.event.changed = function (currentCell) {
     if (
       currentCell.children.length > 0 &&
-      currentCell !== rd.obj.parentNode &&
+      currentCell != rd.obj.parentNode &&
       window.localStorage.getItem("radioDrop") == "shift" &&
-      currentCell.className == "redips-only b2"
+      currentCell.classList.contains("b2")
     ) {
       rd.hover.colorTd = "yellow";
     } else rd.hover.colorTd = "chartreuse";
@@ -2077,7 +2073,7 @@ redips.init = function () {
             }
           } else {
             currentChgCell.innerHTML = " ";
-            currentCell.style.border = "1px dashed dimgray";
+            //currentCell.style.border = "1px dashed dimgray";
           }
 
           rd.moveObject({
@@ -2086,7 +2082,7 @@ redips.init = function () {
             callback: function () {
               document.getElementById("makRik").innerHTML--;
               b1Cell[i].children[0].style.display = "none";
-              b1Cell[i].style.removeProperty("border");
+              //b1Cell[i].style.removeProperty("border");
               hideHoshitori();
               window.localStorage.setItem(
                 "banzuke",
@@ -2100,13 +2096,13 @@ redips.init = function () {
   };
 
   rd.event.clicked = function (currentCell) {
-    currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
+    //currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
     hideHoshitori();
   };
 
   rd.event.notMoved = function () {
     var currentCell = rd.findParent("TD", rd.obj);
-    currentCell.style.removeProperty("box-shadow");
+    //currentCell.style.removeProperty("box-shadow");
   };
 
   rd.event.droppedBefore = function (targetCell) {
@@ -2116,21 +2112,21 @@ redips.init = function () {
       currentChgCell,
       dropRadio = document.getElementsByName("dropMode");
 
-    currentCell.style.removeProperty("box-shadow");
+    //currentCell.style.removeProperty("box-shadow");
 
     if (
       !currentCell.classList.contains("b2") &&
       targetCell.classList.contains("b2")
     ) {
       currentCell.children[0].style.display = "block";
-      currentCell.style.border = "1px dashed dimgray";
+      //currentCell.style.border = "1px dashed dimgray";
       rikiCount.innerHTML++;
     } else if (
       currentCell.classList.contains("b2") &&
       !targetCell.classList.contains("b2")
     ) {
       targetCell.children[0].style.display = "none";
-      targetCell.style.removeProperty("border");
+      //targetCell.style.removeProperty("border");
       rikiCount.innerHTML--;
     }
 
@@ -2150,9 +2146,10 @@ redips.init = function () {
             b2Cell[i] === thisCard.parentNode) ||
           (i == b2Cell.length - 1 && b2Cell[i].children.length > 0)
         ) {
-          b2Cell[i].style.border = "none";
+          //b2Cell[i].style.border = "none";
           for (var j = i - 1; j >= targetIndex; i--, j--)
             rd.relocate(b2Cell[j], b2Cell[i], "instant");
+          redips.init();
           break;
         }
       }
@@ -2198,7 +2195,7 @@ redips.init = function () {
 
           if (j == 0) {
             targetChgCell.innerHTML = thisChg;
-            b2Cell[i].style.border = "none";
+            //b2Cell[i].style.border = "none";
           } else targetChgCell.innerHTML += "<br>" + thisChg;
         }
       } else {
@@ -2209,7 +2206,7 @@ redips.init = function () {
         else if (b2Cell[i].nextSibling.className == "ch")
           targetChgCell = b2Cell[i].nextSibling;
         targetChgCell.innerHTML = " ";
-        b2Cell[i].style.border = "1px dashed dimgray";
+        //b2Cell[i].style.border = "1px dashed dimgray";
       }
     }
   };
@@ -2238,7 +2235,7 @@ redips.resetBanzuke = function () {
 
     for (var i = 0; i < b2Cell.length; i++) {
       if (b2Cell[i].children.length > 0) {
-        b2Cell[i].style.border = "1px dashed dimgray";
+        //b2Cell[i].style.border = "1px dashed dimgray";
         chgCell[i].innerHTML = " ";
         for (var j = b2Cell[i].children.length - 1; j >= 0; j--) {
           for (var k = 0; k <= theSekitori.length; k++) {
@@ -2248,7 +2245,7 @@ redips.resetBanzuke = function () {
                 target: b1Cell[k],
               });
               b1Cell[k].children[0].style.display = "none";
-              b1Cell[k].style.removeProperty("border");
+              //b1Cell[k].style.removeProperty("border");
               break;
             }
           }
