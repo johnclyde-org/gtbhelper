@@ -25,7 +25,8 @@
   <body>
     <header>
       <h1>
-        <span id="gtb">Guess the Banzuke </span>Helper Page <small>(NEW)</small>
+        <span id="gtb">Guess the Banzuke </span>Helper Page <small>(NEW)</small
+        ><span id="plusJuryo"> +juryo</span>
       </h1>
       <div id="links">
         <a href="previous.html">Previous basho</a>
@@ -39,11 +40,15 @@
         <li>
           Click on individual rikishi's rank change to run a SumoDB query with
           the rikishi's current rank, number of wins and the new rank that will
-          be highlighted.
+          be highlighted
         </li>
         <li>
           Your every move is automatically saved to the browser's local storage
           so it will not reset when you refresh the page or close the browser
+        </li>
+        <li>
+          You can copy & paste the banzuke into your preferred spreadsheet
+          editor
         </li>
       </ul>
       <div id="options">
@@ -56,8 +61,7 @@
               name="onDoubleClick"
               onclick="saveRadio(this)"
               value="openRikishiPage"
-            />
-            Open Rikishi Information page</label
+            />Open Rikishi Information page</label
           >
           <br />
           <label
@@ -67,8 +71,7 @@
               name="onDoubleClick"
               onclick="saveRadio(this)"
               value="returnToOld"
-            />
-            Return it to the old banzuke</label
+            />Return it to the old banzuke</label
           >
           <br />
           <label
@@ -78,8 +81,7 @@
               name="onDoubleClick"
               onclick="saveRadio(this)"
               value="doNothing"
-            />
-            Do nothing</label
+            />Do nothing</label
           >
         </fieldset>
         <fieldset class="option">
@@ -91,8 +93,7 @@
               name="dropMode"
               onclick="saveDropRadio(this)"
               value="multiple"
-            />
-            Stack</label
+            />Stack</label
           >
           <label title="Make room and lower rikishi below by one slot"
             ><input
@@ -101,8 +102,7 @@
               name="dropMode"
               onclick="saveDropRadio(this)"
               value="shift"
-            />
-            Shift</label
+            />Shift</label
           >
           <label title="Don't drop to occupied slot"
             ><input
@@ -111,8 +111,7 @@
               name="dropMode"
               onclick="saveDropRadio(this)"
               value="disable"
-            />
-            Disable</label
+            />Disable</label
           >
         </fieldset>
         <fieldset id="hoshitori" class="option">
@@ -166,423 +165,1253 @@
       </div>
     </header>
     <div id="redips-drag">
-      <div class="wrapper1">
-        <div id="div1"></div>
-      </div>
-      <div id="tableContainer" class="wrapper2">
+      <div id="tableContainer">
         <table id="tableLiner" class="mainTable">
           <tr>
             <td class="banzukeContainer">
+              <div id="pop1" class="columnPopup">
+                Columns...
+                <label
+                  ><input
+                    id="colCheck1"
+                    autocomplete="off"
+                    class="columnCheckbox forB1 checkedByDefault"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="rs1"
+                  />Result</label
+                >
+                <label
+                  ><input
+                    id="colCheck2"
+                    autocomplete="off"
+                    class="columnCheckbox forB1"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="new"
+                  />New Rank</label
+                >
+                <label
+                  ><input
+                    id="colCheck3"
+                    autocomplete="off"
+                    class="columnCheckbox forB1"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="ch1"
+                  />Rank Change</label
+                >
+              </div>
               <table id="banzuke1">
                 <thead>
                   <tr>
-                    <th class="tableTitle" colspan="5"></th>
+                    <th colspan="5" class="tableTitle"></th>
                   </tr>
                   <tr class="theader">
+                    <th class="rs1">Result</th>
                     <th>East</th>
+                    <th class="new hid">New<br />Rank</th>
+                    <th class="ch1 hid">Rank<br />Chg.</th>
                     <th>Rank</th>
                     <th>West</th>
+                    <th class="rs1">Result</th>
+                    <th class="new hid">New<br />Rank</th>
+                    <th class="ch1 hid">Rank<br />Chg.</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="ygroup">
+                    <td class="rs1"></td>
                     <td class="redips-only Y1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>Y1</th>
                     <td class="redips-only Y1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr class="ogroup">
+                    <td class="rs1"></td>
                     <td class="redips-only O1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>O1</th>
                     <td class="redips-only O1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr class="sgroup">
+                    <td class="rs1"></td>
                     <td class="redips-only S1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>S1</th>
                     <td class="redips-only S1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr class="sgroup">
+                    <td class="rs1"></td>
                     <td class="redips-only S2e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>S2</th>
                     <td class="redips-only S2w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr class="kgroup">
+                    <td class="rs1"></td>
                     <td class="redips-only K1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>K1</th>
                     <td class="redips-only K1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr class="kgroup">
+                    <td class="rs1"></td>
                     <td class="redips-only K2e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>K2</th>
                     <td class="redips-only K2w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
 
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M1</th>
                     <td class="redips-only M1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M2e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M2</th>
                     <td class="redips-only M2w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M3e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M3</th>
                     <td class="redips-only M3w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M4e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M4</th>
                     <td class="redips-only M4w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M5e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M5</th>
                     <td class="redips-only M5w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M6e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M6</th>
                     <td class="redips-only M6w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M7e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M7</th>
                     <td class="redips-only M7w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M8e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M8</th>
                     <td class="redips-only M8w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M9e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M9</th>
                     <td class="redips-only M9w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M10e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M10</th>
                     <td class="redips-only M10w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M11e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M11</th>
                     <td class="redips-only M11w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M12e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M12</th>
                     <td class="redips-only M12w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M13e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M13</th>
                     <td class="redips-only M13w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M14e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M14</th>
                     <td class="redips-only M14w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M15e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M15</th>
                     <td class="redips-only M15w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M16e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M16</th>
                     <td class="redips-only M16w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only M17e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>M17</th>
                     <td class="redips-only M17w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
+                  <tr class="divider"></tr>
                   <tr>
-                    <th class="divider" colspan="3"></th>
-                  </tr>
-                  <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J1</th>
                     <td class="redips-only J1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J2e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J2</th>
                     <td class="redips-only J2w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J3e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J3</th>
                     <td class="redips-only J3w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J4e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J4</th>
                     <td class="redips-only J4w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J5e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J5</th>
                     <td class="redips-only J5w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J6e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J6</th>
                     <td class="redips-only J6w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J7e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J7</th>
                     <td class="redips-only J7w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J8e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J8</th>
                     <td class="redips-only J8w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J9e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J9</th>
                     <td class="redips-only J9w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J10e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J10</th>
                     <td class="redips-only J10w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J11e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J11</th>
                     <td class="redips-only J11w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J12e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J12</th>
                     <td class="redips-only J12w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J13e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J13</th>
                     <td class="redips-only J13w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                   <tr>
+                    <td class="rs1"></td>
                     <td class="redips-only J14e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                     <th>J14</th>
                     <td class="redips-only J14w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr class="divider"></tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms1e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms1</th>
+                    <td class="redips-only Ms1w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms2e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms2</th>
+                    <td class="redips-only Ms2w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms3e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms3</th>
+                    <td class="redips-only Ms3w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms4e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms4</th>
+                    <td class="redips-only Ms4w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms5e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms5</th>
+                    <td class="redips-only Ms5w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms6e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms6</th>
+                    <td class="redips-only Ms6w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms7e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms7</th>
+                    <td class="redips-only Ms7w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms8e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms8</th>
+                    <td class="redips-only Ms8w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms9e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms9</th>
+                    <td class="redips-only Ms9w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms10e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms10</th>
+                    <td class="redips-only Ms10w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms10TD"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>TD</th>
+                    <td class="redips-only none"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms11e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms11</th>
+                    <td class="redips-only Ms11w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms12e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms12</th>
+                    <td class="redips-only Ms12w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms13e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms13</th>
+                    <td class="redips-only Ms13w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms14e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms14</th>
+                    <td class="redips-only Ms14w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                  </tr>
+                  <tr>
+                    <td class="rs1"></td>
+                    <td class="redips-only Ms15e"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
+                    <th>Ms15</th>
+                    <td class="redips-only Ms15w"></td>
+                    <td class="rs1"></td>
+                    <td class="new hid"></td>
+                    <td class="ch1 hid"></td>
                   </tr>
                 </tbody>
               </table>
             </td>
             <td class="banzukeContainer">
+              <div class="columnPopup">
+                <label
+                  ><input
+                    id="colCheck4"
+                    autocomplete="off"
+                    class="columnCheckbox forB2 checkedByDefault"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="rs2"
+                  />Result</label
+                >
+                <label
+                  ><input
+                    id="colCheck5"
+                    autocomplete="off"
+                    class="columnCheckbox forB2 checkedByDefault"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="cur"
+                  />Current Rank</label
+                >
+                <label
+                  ><input
+                    id="colCheck6"
+                    autocomplete="off"
+                    class="columnCheckbox forB2 checkedByDefault"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="ch2"
+                  />Rank Change</label
+                >
+                <label
+                  ><input
+                    id="colCheck7"
+                    autocomplete="off"
+                    class="columnCheckbox forB2"
+                    type="checkbox"
+                    onclick="toggleColumns(this)"
+                    value="nte"
+                  />Notes</label
+                >
+              </div>
               <table id="banzuke2" class="mainTable">
                 <thead>
                   <tr>
-                    <th class="tableTitle" colspan="5">
-                      <span id="makRik">0</span> rikishi placed
+                    <th colspan="9" class="tableTitle">
+                      <span id="makRik">0</span>/42
                     </th>
                   </tr>
                   <tr class="theader">
-                    <th class="chHead">Chg.</th>
+                    <th class="nte hid">Notes</th>
+                    <th class="cur">Curr.<br />Rank</th>
                     <th>East</th>
+                    <th class="rs2">Result</th>
+                    <th class="ch2">Rank<br />Chg.</th>
                     <th>Rank</th>
+                    <th class="cur">Curr.<br />Rank</th>
                     <th>West</th>
-                    <th class="chHead">Chg.</th>
+                    <th class="rs2">Result</th>
+                    <th class="ch2">Rank<br />Chg.</th>
+                    <th class="nte hid">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="ygroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="Y1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>Y1</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="Y1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="ygroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="Y2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>Y2</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="Y2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="ogroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="O1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>O1</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="O1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="ogroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="O2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>O2</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="O2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="ogroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="O3e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>O3</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="O3w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="sgroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="S1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>S1</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="S1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="sgroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="S2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>S2</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="S2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="kgroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="K1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>K1</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="K1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr class="kgroup">
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="K2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>K2</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="K2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
 
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M1</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M2</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M3e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M3</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M3w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M4e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M4</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M4w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M5e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M5</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M5w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M6e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M6</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M6w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M7e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M7</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M7w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M8e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M8</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M8w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M9e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M9</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M9w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M10e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M10</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M10w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M11e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M11</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M11w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M12e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M12</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M12w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M13e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M13</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M13w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M14e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M14</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M14w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M15e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M15</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M15w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M16e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M16</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M16w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M17e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M17</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M17w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <td class="ch"></td>
-                    <td class="redips-only b2"></td>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="M18e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
                     <th>M18</th>
-                    <td class="redips-only b2"></td>
-                    <td class="ch"></td>
+                    <td class="cur"></td>
+                    <td data-r="M18w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <th colspan="9" class="tableTitle juryoGuessTitle">
+                      Juryo Guess - <span id="juRik">0</span>/28
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J1e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J1</th>
+                    <td class="cur"></td>
+                    <td data-r="J1w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J2e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J2</th>
+                    <td class="cur"></td>
+                    <td data-r="J2w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J3e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J3</th>
+                    <td class="cur"></td>
+                    <td data-r="J3w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J4e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J4</th>
+                    <td class="cur"></td>
+                    <td data-r="J4w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J5e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J5</th>
+                    <td class="cur"></td>
+                    <td data-r="J5w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J6e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J6</th>
+                    <td class="cur"></td>
+                    <td data-r="J6w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J7e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J7</th>
+                    <td class="cur"></td>
+                    <td data-r="J7w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J8e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J8</th>
+                    <td class="cur"></td>
+                    <td data-r="J8w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J9e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J9</th>
+                    <td class="cur"></td>
+                    <td data-r="J9w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J10e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J10</th>
+                    <td class="cur"></td>
+                    <td data-r="J10w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J11e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J11</th>
+                    <td class="cur"></td>
+                    <td data-r="J11w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J12e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J12</th>
+                    <td class="cur"></td>
+                    <td data-r="J12w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J13e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J13</th>
+                    <td class="cur"></td>
+                    <td data-r="J13w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
+                  </tr>
+                  <tr>
+                    <td class="nte hid"><div></div></td>
+                    <td class="cur"></td>
+                    <td data-r="J14e" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <th>J14</th>
+                    <td class="cur"></td>
+                    <td data-r="J14w" class="redips-only b2"></td>
+                    <td class="rs2"></td>
+                    <td class="ch2"></td>
+                    <td class="nte hid"><div></div></td>
                   </tr>
                 </tbody>
               </table>
