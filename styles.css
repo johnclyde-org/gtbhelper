@@ -126,9 +126,11 @@ legend {
 }
 
 #progressText {
-  display: inline-block;
-  font-weight: bold;
-  margin-left: 5px;
+  background: white;
+  padding: 0 3px;
+  position: fixed;
+  top: 10%;
+  right: 10%;
 }
 
 button {
