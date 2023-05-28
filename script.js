@@ -2757,8 +2757,8 @@ redips.resetBanzuke = function () {
       }
       if (c6[i].children[0].innerHTML != "") c6[i].children[0].innerHTML = "";
     }
+    showSaving();
   }
-  showSaving();
 };
 
 function getChange(thisRank, targetCellRank) {
