@@ -1841,6 +1841,89 @@ function saveNote() {
   }, 1000);
 }
 
+function exportTableToCSV($table, filename) {
+  var $rows = $table.find("tr:has(td),tr:has(th)"),
+    // Temporary delimiter characters unlikely to be typed by keyboard
+    // This is to avoid accidentally splitting the actual contents
+    tmpColDelim = String.fromCharCode(11), // vertical tab character
+    tmpRowDelim = String.fromCharCode(0), // null character
+    // actual delimiter characters for CSV format
+    colDelim = '","',
+    rowDelim = '"\r\n"',
+    // Grab text from table into CSV formatted string
+    csv =
+      '"' +
+      $rows
+        .map(function (i, row) {
+          var $row = $(row),
+            $cols = $row.find("td,th");
+
+          return $cols
+            .map(function (j, col) {
+              var $col = $(col),
+                text = $col.text(),
+                html = $col.html(),
+                arr = [];
+
+              if ($col.prop("tagName") == "TH" || $col.hasClass("cur")) {
+                $col.contents().each(function () {
+                  if (this.nodeType == 3) arr.push(this.nodeValue);
+                  else if (this.tagName == "SPAN") arr.push(this.innerText);
+                });
+                if ($col.hasClass("cur") && $col.prop("tagName") != "TH")
+                  text = arr.join("\n");
+                else text = arr.join(" ");
+              } else if (
+                $col.hasClass("b2") ||
+                $col.hasClass("rs2") ||
+                $col.hasClass("ch2")
+              ) {
+                $col.children().each(function () {
+                  if (this.tagName != "BR") arr.push(this.innerText);
+                });
+                text = arr.join("\n");
+              } else if ($col.hasClass("nte")) {
+                var temp;
+                $col
+                  .children("div")
+                  .children()
+                  .each(function () {
+                    temp = this.innerText.replace("\n", "");
+                    arr.push(temp);
+                  });
+                text = arr.join("\n");
+              }
+
+              text = text.replace(/ /g, "");
+              return text.replace(/"/g, '""'); // escape double quotes
+            })
+            .get()
+            .join(tmpColDelim);
+        })
+        .get()
+        .join(tmpRowDelim)
+        .split(tmpRowDelim)
+        .join(rowDelim)
+        .split(tmpColDelim)
+        .join(colDelim) +
+      '"',
+    // Data URI
+    csvData = "data:application/csv;charset=utf-8," + encodeURIComponent(csv);
+
+  console.log(csv);
+
+  if (window.navigator.msSaveBlob) {
+    // IE 10+
+    //alert('IE' + csv);
+    window.navigator.msSaveOrOpenBlob(
+      new Blob([csv], { type: "text/plain;charset=utf-8;" }),
+      "csvname.csv",
+    );
+  } else {
+    $(this).attr({ download: filename, href: csvData, target: "_blank" });
+  }
+}
+
 window.onload = function () {
   var basho = "202305"; // The date of the basho just ended
 
@@ -2108,6 +2191,14 @@ window.onload = function () {
 
   //****************************************************************************
 
+  // This must be a hyperlink
+  $("#exportToCsv1").on("click", function (event) {
+    exportTableToCSV.apply(this, [$("#banzuke1"), "banzuke1.csv"]);
+  });
+  $("#exportToCsv2").on("click", function (event) {
+    exportTableToCSV.apply(this, [$("#banzuke2"), "banzuke2.csv"]);
+  });
+
   if (window.localStorage.getItem("banzuke1") !== null) {
     window.localStorage.removeItem("banzuke1");
     window.localStorage.removeItem("banzuke2");
@@ -2118,10 +2209,22 @@ window.onload = function () {
     //writeTableTitles(basho);
     //populateSlots();
   }
-  if (window.localStorage.getItem("picks") !== null)
+  if (window.localStorage.getItem("picks") !== null) {
     document.getElementById("tableLiner").innerHTML =
       window.localStorage.getItem("picks");
-  else {
+
+    var banzuke1 = document.getElementById("banzuke1");
+    var b1Cell = banzuke1.getElementsByClassName("redips-only");
+
+    for (var i = 0; i < b1Cell.length; i++) {
+      if (b1Cell[i].children.length > 1) b1Cell[i].children[0].remove();
+    }
+
+    window.localStorage.setItem(
+      "picks",
+      document.getElementById("tableLiner").innerHTML,
+    );
+  } else {
     writeTableTitles(basho);
     populateSlots();
   }
@@ -2246,16 +2349,18 @@ window.onload = function () {
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
 
-          var holder = document.createElement("a");
+          /*
+          var holder = document.createElement('a');
 
           holder.innerHTML = rikiData[1];
-          holder.href =
-            "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
+          holder.href = "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
           holder.target = "_blank";
-          if (rikiData[0].startsWith("Ms")) holder.className = "msLink";
+          if (rikiData[0].startsWith("Ms")) 
+            holder.className = "msLink";
           //holder.setAttribute("onmouseover", 'showNextRank("' + rikiData[0] + '")');
           //holder.setAttribute("onmouseout", "hideNextRank()");
           holder.style.display = "none";
+          */
 
           rikiData[1] =
             '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
@@ -2284,7 +2389,7 @@ window.onload = function () {
 
           //card.setAttribute("onmouseout", "hideHoshitori()");
 
-          cell[i].appendChild(holder);
+          //cell[i].appendChild(holder);
           cell[i].appendChild(card);
 
           var resCell, newRankCell;
@@ -2463,7 +2568,7 @@ redips.init = function () {
           if (currentCell.dataset.r.charAt(0) == "J")
             document.getElementById("juRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
-          originCell.children[0].style.display = "none";
+          originCell.children[0].remove();
           //b1Cell[i].style.removeProperty("border");
           hideHoshitori();
           updateInfoCells();
@@ -2473,6 +2578,7 @@ redips.init = function () {
           );
         },
       });
+      showSaving();
     }
   };
 
@@ -2481,57 +2587,51 @@ redips.init = function () {
     hideHoshitori();
   };
 
-  rd.event.notMoved = function () {
-    var currentCell = rd.findParent("TD", rd.obj);
-    //currentCell.style.removeProperty("box-shadow");
+  /*
+  rd.event.notMoved = function() {
+    var currentCell = rd.findParent('TD', rd.obj); 
+    currentCell.style.removeProperty("box-shadow");
   };
+  */
 
   rd.event.droppedBefore = function (targetCell) {
-    var makRik = document.getElementById("makRik"),
-      juRik = document.getElementById("juRik"),
+    var makuCounter = document.getElementById("makRik"),
+      juCounter = document.getElementById("juRik"),
       thisCard = rd.obj,
       currentCell = rd.findParent("TD", thisCard),
       currentChgCell,
       dropRadio = document.getElementsByName("dropMode");
-    var currentCellRank = currentCell.dataset.r,
-      targetCellRank = targetCell.dataset.r;
+    var currentCellRank,
+      targetCellRank,
+      curCellIsOfBanzuke2 = currentCell.classList.contains("b2"),
+      tarCellIsOfBanzuke2 = targetCell.classList.contains("b2");
 
     //currentCell.style.removeProperty("box-shadow");
 
-    if (
-      !currentCell.classList.contains("b2") &&
-      targetCell.classList.contains("b2")
-    ) {
-      currentCell.children[0].style.display = "block";
-      if (targetCellRank.charAt(0) != "J") makRik.innerHTML++;
-      else juRik.innerHTML++;
-    } else if (
-      currentCell.classList.contains("b2") &&
-      !targetCell.classList.contains("b2")
-    ) {
-      targetCell.children[0].style.display = "none";
-      if (currentCellRank.charAt(0) != "J") makRik.innerHTML--;
-      else juRik.innerHTML--;
-    } else if (
-      currentCell.classList.contains("b2") &&
-      targetCell.classList.contains("b2")
-    ) {
-      if (currentCellRank.charAt(0) == "J" && targetCellRank.charAt(0) != "J") {
-        makRik.innerHTML++;
-        juRik.innerHTML--;
-      } else if (
-        currentCellRank.charAt(0) != "J" &&
-        targetCellRank.charAt(0) == "J"
-      ) {
-        makRik.innerHTML--;
-        juRik.innerHTML++;
-      }
+    if (curCellIsOfBanzuke2) {
+      currentCellRank = currentCell.dataset.r.charAt(0);
+      if (currentCellRank == "J") juCounter.innerHTML--;
+      else makuCounter.innerHTML--;
+    } else if (tarCellIsOfBanzuke2) {
+      var holder = document.createElement("a");
+
+      holder.innerHTML = thisCard.innerText;
+      holder.href = thisCard.children[0].href;
+      holder.target = "_blank";
+      if (thisCard.id.startsWith("Ms")) holder.className = "msLink";
+      currentCell.appendChild(holder);
     }
+
+    if (tarCellIsOfBanzuke2) {
+      targetCellRank = targetCell.dataset.r.charAt(0);
+      if (targetCellRank == "J") juCounter.innerHTML++;
+      else makuCounter.innerHTML++;
+    } else targetCell.children[0].remove();
 
     if (
       dropRadio[1].checked &&
       targetCell !== currentCell &&
-      targetCell.classList.contains("b2") &&
+      tarCellIsOfBanzuke2 &&
       targetCell.children.length > 0
     ) {
       var tip = document.getElementById("tip");
@@ -2757,7 +2857,7 @@ redips.resetBanzuke = function () {
       }
       if (c6[i].children[0].innerHTML != "") c6[i].children[0].innerHTML = "";
     }
-    showSaving();
+    location.reload();
   }
 };
 

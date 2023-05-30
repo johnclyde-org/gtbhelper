@@ -151,6 +151,15 @@
             Loss in play-off
           </div>
         </fieldset>
+        <fieldset>
+          <legend>Miscellany</legend>
+          Export table data into CSV
+          <a href="#" id="exportToCsv1" class="exportToCsvButton">Table 1</a>
+          <a href="#" id="exportToCsv2" class="exportToCsvButton">Table 2</a>
+          <button id="resetBanzuke" onclick="redips.resetBanzuke()">
+            Reset Changes
+          </button>
+        </fieldset>
       </div>
       <!--
     <div id="saveLoadProgress">
@@ -160,11 +169,7 @@
       <button id="loadSave">Load last saved banzuke</button>
       <span id="messageLine"></span>
     </div>
-    -->
-      <button id="resetBanzuke" onclick="redips.resetBanzuke()">
-        Reset Changes
-      </button>
-    </header>
+    --></header>
     <div id="redips-drag">
       <div id="tableContainer">
         <table id="tableLiner" class="mainTable">

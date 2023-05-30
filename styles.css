@@ -115,8 +115,17 @@ legend {
   line-height: 16px;
 }
 
+.exportToCsvButton {
+  margin: 0;
+  background: lightgray;
+  color: black;
+  padding: 1px 3px;
+  border: 1px dimgray solid;
+  border-radius: 5px;
+}
+
 #resetBanzuke {
-  margin-left: 5%;
+  display: block;
 }
 
 #messageLine {
