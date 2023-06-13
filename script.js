@@ -1226,8 +1226,9 @@ var hoshitori = [
     ],
   },
   {
-    record: [0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0],
+    record: [1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0],
     aite: [
+      "Ryuo",
       "Tohakuryu",
       "Takakento",
       "Churanoumi",
@@ -1340,8 +1341,10 @@ var hoshitori = [
     ],
   },
   {
-    record: [1, 1, 1, 3, 0, 1, 1, 0, 0, 0, 1, 1, 0],
+    record: [0, 0, 1, 1, 1, 3, 0, 1, 1, 0, 0, 0, 1, 1, 0],
     aite: [
+      "Chiyonoumi",
+      "Kawazoe",
       "Azumaryu",
       "Churanoumi",
       "Atamifuji",
@@ -1358,8 +1361,9 @@ var hoshitori = [
     ],
   },
   {
-    record: [0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+    record: [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0],
     aite: [
+      "Ryuo",
       "Shonannoumi",
       "Oshoma",
       "Shimazuumi",
@@ -1377,8 +1381,10 @@ var hoshitori = [
     ],
   },
   {
-    record: [0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+    record: [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1],
     aite: [
+      "Shishi",
+      "Shiden",
       "Roga",
       "Akua",
       "Hakuyozan",
@@ -1395,8 +1401,10 @@ var hoshitori = [
     ],
   },
   {
-    record: [1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1],
+    record: [0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1],
     aite: [
+      "Yuma",
+      "Kotokuzan",
       "Oshoma",
       "Roga",
       "Takakento",
@@ -1413,8 +1421,11 @@ var hoshitori = [
     ],
   },
   {
-    record: [0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1],
+    record: [1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1],
     aite: [
+      "Hayatefuji",
+      "Shishi",
+      "Kawazoe",
       "Akua",
       "Churanoumi",
       "Daiamami",
@@ -1430,8 +1441,11 @@ var hoshitori = [
     ],
   },
   {
-    record: [1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0],
+    record: [1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0],
     aite: [
+      "Yuma",
+      "Tochimusashi",
+      "Shiden",
       "Churanoumi",
       "Daiamami",
       "Chiyonokuni",
@@ -1446,6 +1460,7 @@ var hoshitori = [
       "Tokihayate",
     ],
   },
+  // Juryo rikishi's torikumi
   {
     record: [1, 1, 0, 1, 1, 0, 0],
     aite: [
@@ -2718,7 +2733,10 @@ function updateInfoCells() {
     targetChgCell;
 
   for (var i = 0; i < b1Cell.length; i++) {
-    if (b1Cell[i].children.length == 2) {
+    if (
+      b1Cell[i].children.length > 0 &&
+      b1Cell[i].children[0].tagName == "DIV"
+    ) {
       newRankCell = b1Cell[i].nextSibling;
       if (i % 2 != 0) {
         newRankCell = newRankCell.nextSibling;
