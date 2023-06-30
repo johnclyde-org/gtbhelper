@@ -1841,21 +1841,6 @@ var hoshitori = [
 let redips = {},
   rd = REDIPS.drag;
 
-//let time = 0;
-
-// On change paste keyup.
-function saveNote() {
-  // Reset the timer
-  clearTimeout(time);
-  time = setTimeout(function () {
-    window.localStorage.setItem(
-      "picks",
-      document.getElementById("tableLiner").innerHTML,
-    );
-    console.log("hi");
-  }, 1000);
-}
-
 function exportTableToCSV($table, filename) {
   var $rows = $table.find("tr:has(td),tr:has(th)"),
     // Temporary delimiter characters unlikely to be typed by keyboard
@@ -2283,6 +2268,7 @@ window.onload = function () {
       clearTimeout(time);
 
       time = setTimeout(function () {
+        hideHoshitori();
         window.localStorage.setItem(
           "picks",
           document.getElementById("tableLiner").innerHTML,
@@ -2822,11 +2808,7 @@ function updateInfoCells() {
 }
 
 redips.resetBanzuke = function () {
-  if (
-    confirm(
-      "Reset the banzuke? This will not reset your save in Google Drive",
-    ) == true
-  ) {
+  if (confirm("Reset the banzuke?") == true) {
     var redipsCell = document.querySelectorAll(".redips-only"),
       b2Cell = document.querySelectorAll(".b2"),
       chgCell = document.getElementsByClassName("ch");
@@ -2877,6 +2859,33 @@ redips.resetBanzuke = function () {
     }
     location.reload();
   }
+};
+
+redips.arrange = function () {
+  var rikishi = document.querySelectorAll(".se");
+
+  for (var i = 0; i < rikishi.length; i++) {
+    var rikishiRank = rikishi[i].id;
+
+    if (!rikishiRank.startsWith("Ms")) {
+      var holder = document.createElement("a");
+
+      holder.innerHTML = rikishi[i].innerText;
+      holder.href = rikishi[i].children[0].href;
+      holder.target = "_blank";
+      rikishi[i].parentNode.appendChild(holder);
+
+      rd.moveObject({
+        obj: rikishi[i],
+        target: document.querySelector('td[data-r="' + rikishiRank + '"]'),
+      });
+
+      if (rikishiRank.startsWith("J"))
+        document.getElementById("juRik").innerHTML++;
+      else document.getElementById("makRik").innerHTML++;
+    } else break;
+  }
+  updateInfoCells();
 };
 
 function getChange(thisRank, targetCellRank) {
