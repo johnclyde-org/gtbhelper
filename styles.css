@@ -20,18 +20,9 @@ body {
 }
 
 header {
-  width: auto;
-  padding: 10px;
-  padding-left: 20px;
-  background-color: #cbd3de;
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-bottom: 30px;
+  padding: 2vw;
+  background-color: #c2dcff;
   color: #181818;
-  border: 10px solid;
-  border-color: #ffffff85 #00000029 #0000003d #ffffff5e;
-  padding-right: 20px;
-  box-sizing: border-box;
   box-shadow: 0 0 8px #8c8c8c;
 }
 
@@ -125,7 +116,10 @@ legend {
 }
 
 #resetBanzuke {
-  display: block;
+}
+
+#miscellany {
+  max-width: 270px;
 }
 
 #messageLine {
@@ -142,11 +136,13 @@ legend {
   right: 10%;
 }
 
+/*
 button {
-  padding: 2px 6px;
-  font-family: Helvetica, sans-serif;
-  margin: 5px 0;
+  	padding: 2px 6px;
+  	font-family: Helvetica, sans-serif;
+  	margin: 5px 0;
 }
+*/
 
 .popupButton {
   cursor: pointer;
@@ -175,19 +171,23 @@ button {
 
 #tableContainer {
   position: relative;
-  margin-left: 4%;
-  margin-right: 4%;
-  background-color: #0000002e;
-  box-shadow: 0px 0px 15px #8c8c8c inset;
-  border-width: 0 3px;
-  border-style: none solid;
-  border-color: cadetblue;
   overflow: scroll;
+  overflow-y: hidden;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to right,
+    #00000069,
+    #00000017 20%,
+    #00000017 80%,
+    #00000069
+  );
 }
 
 #tableLiner {
   background-color: transparent;
   border-spacing: 20px;
+  margin-left: 3vw;
 }
 
 .banzukeContainer {
@@ -252,7 +252,7 @@ td {
 }
 
 .redips-only {
-  min-width: 103px;
+  min-width: 105px;
 }
 
 .b2 {
@@ -318,6 +318,22 @@ th {
   min-width: 60px;
 }
 
+.cur span {
+  border-radius: 3px 0 0 3px;
+  border: 2px outset #82828280;
+  margin-right: -5px;
+  padding: 0 3px;
+  border-right: none;
+}
+
+.rs2 a {
+  border-radius: 0 3px 3px 0;
+  border: 2px outset #82828280;
+  margin-left: -5px;
+  padding: 0 3px;
+  border-left: none;
+}
+
 div[contenteditable="true"] {
   background: white;
   white-space: nowrap;
@@ -344,29 +360,54 @@ textarea {
   border-style: solid;
 }
 
+.san > * {
+  background-color: #f2f2b8;
+}
+
 .ygroup > * {
-  background-color: #dedeff;
+  background-color: #f8e5c2;
 }
 
 .ogroup > * {
-  background-color: #ffd8ff;
+  background-color: #f4f4bf;
 }
 
 .sgroup > * {
-  background-color: #ffe6b8;
+  background-color: #f8e5c2;
 }
 
 .kgroup > * {
-  background-color: #f4f4b3;
+  background-color: #f4f4bf;
 }
 
 #tip {
   position: absolute;
-  transform: translateY(-25px);
-  margin: auto 30px;
-  background: white;
-  border: 1px solid;
+  margin-left: 105px;
+  margin-top: -25px;
+  background: lightyellow;
   padding: 0 3px;
+  text-align: center;
+  border-radius: 5px 5px 5px 0;
+  color: black;
+  font-size: larger;
+  box-shadow: 1px 1px 1px black;
+}
+
+#chTooltip {
+  background: lightyellow;
+  position: absolute;
+  margin-left: 3px;
+  padding: 2px;
+  border-radius: 0 5px 5px 0;
+  box-shadow: dimgray 1px 1px 0px;
+}
+
+.shifter {
+  border-color: blue !important;
+}
+
+.shiftTo {
+  box-shadow: 0 0 0 3px inset cadetblue;
 }
 
 .redips-only a {
@@ -443,13 +484,14 @@ td .redips-drag,
   /*background: linear-gradient(rgba(255, 255, 255, 0.75), transparent 15%, transparent 85%, rgba(0, 0, 0, 0.25));*/
   text-shadow: 1px 1px #ffffff7d;
   text-align: center;
-  width: 90px;
+  min-width: 93px;
   border-radius: 3px;
   padding: 0 3px;
   margin: auto;
   border: 2px outset #82828280;
   outline-offset: 2px;
   white-space: nowrap;
+  position: relative;
 }
 
 footer {

@@ -117,8 +117,8 @@
         <fieldset id="hoshitori" class="option">
           <legend>
             <label
-              ><input id="hoshiCheckbox" type="checkbox" name="checkbox" />
-              Hover over rikishi to highlight his opponents</label
+              ><input id="hoshiCheckbox" type="checkbox" name="checkbox" />Hover
+              over rikishi to highlight his opponents</label
             >
           </legend>
           Explanation
@@ -151,15 +151,24 @@
             Loss in play-off
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset id="miscellany" class="option">
           <legend>Miscellany</legend>
           Export table data into CSV
           <a href="#" id="exportToCsv1" class="exportToCsvButton">Table 1</a>
           <a href="#" id="exportToCsv2" class="exportToCsvButton">Table 2</a>
+          <label
+            ><input
+              id="tooltipCheckbox"
+              type="checkbox"
+              name="checkbox"
+            />Disable tooltips</label
+          >
           <button id="resetBanzuke" onclick="redips.resetBanzuke()">
-            Reset Changes
+            Reset changes
           </button>
-          <button onclick="redips.arrange()">Current ranks</button>
+          <button onclick="redips.arrange()">
+            Auto-arrange to current ranks
+          </button>
         </fieldset>
       </div>
       <!--
@@ -210,7 +219,7 @@
                   />Rank Change</label
                 >
               </div>
-              <table id="banzuke1">
+              <table id="banzuke1" class="banzukeTable">
                 <thead>
                   <tr>
                     <th colspan="5" class="tableTitle"></th>
@@ -860,7 +869,7 @@
                   />Notes</label
                 >
               </div>
-              <table id="banzuke2" class="mainTable">
+              <table id="banzuke2" class="mainTable banzukeTable">
                 <thead>
                   <tr>
                     <th colspan="9" class="tableTitle">

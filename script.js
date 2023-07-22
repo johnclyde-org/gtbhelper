@@ -2340,7 +2340,11 @@ window.onload = function () {
         if (cell[i].classList.contains(theSekitori[j].split(" ")[0])) {
           var card = document.createElement("div"),
             rikiData = theSekitori[j].split(" "),
-            wins = rikiData[2].split("-")[0];
+            wins = rikiData[2].split("-")[0],
+            record =
+              rikiData.length == 4
+                ? rikiData[2] + " " + rikiData[3]
+                : rikiData[2];
 
           if (rikiData.length > 3) rikiData[2] += " " + rikiData[3];
 
@@ -2349,6 +2353,7 @@ window.onload = function () {
           if (rikiData[0].startsWith("Ms"))
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
+          card.setAttribute("data-re", record);
 
           /*
           var holder = document.createElement('a');
@@ -2408,48 +2413,50 @@ window.onload = function () {
 };
 
 function showHoshitori() {
-  var thisRikishi = theSekitori.find((text) =>
-    text.startsWith(event.target.id),
-  );
-  var rikishiNum = theSekitori.indexOf(thisRikishi);
+  if (event.target.classList.contains("redips-drag")) {
+    var thisRikishi = theSekitori.find((text) =>
+      text.startsWith(event.target.id),
+    );
+    var rikishiNum = theSekitori.indexOf(thisRikishi);
 
-  event.target.style.border = "2px solid blue";
+    event.target.style.border = "2px solid blue";
 
-  if (
-    document.getElementById("hoshiCheckbox").checked &&
-    hoshitori[rikishiNum].record.length > 0
-  ) {
-    for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
-      var aite = theSekitori.find(
-        (text) => text.split(" ")[1] == hoshitori[rikishiNum].aite[i],
-      );
+    if (
+      document.getElementById("hoshiCheckbox").checked &&
+      hoshitori[rikishiNum].record.length > 0
+    ) {
+      for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
+        var aite = theSekitori.find(
+          (text) => text.split(" ")[1] == hoshitori[rikishiNum].aite[i],
+        );
 
-      if (aite) {
-        var aiteCard = document.getElementById(aite.split(" ")[0]);
-        var honwariBoutColor = "",
-          ketteisenBoutColor = "";
+        if (aite) {
+          var aiteCard = document.getElementById(aite.split(" ")[0]);
+          var honwariBoutColor = "",
+            ketteisenBoutColor = "";
 
-        switch (hoshitori[rikishiNum].record[i]) {
-          case 0:
-            honwariBoutColor = "2px solid red";
-            break;
-          case 1:
-            honwariBoutColor = "2px solid black";
-            break;
-          case 2:
-            honwariBoutColor = "2px dashed red";
-            break;
-          case 3:
-            honwariBoutColor = "2px dashed black";
-            break;
-          case 4:
-            ketteisenBoutColor = "2px solid red";
-            break;
-          default:
-            ketteisenBoutColor = "2px solid black";
+          switch (hoshitori[rikishiNum].record[i]) {
+            case 0:
+              honwariBoutColor = "2px solid red";
+              break;
+            case 1:
+              honwariBoutColor = "2px solid black";
+              break;
+            case 2:
+              honwariBoutColor = "2px dashed red";
+              break;
+            case 3:
+              honwariBoutColor = "2px dashed black";
+              break;
+            case 4:
+              ketteisenBoutColor = "2px solid red";
+              break;
+            default:
+              ketteisenBoutColor = "2px solid black";
+          }
+          if (honwariBoutColor != "") aiteCard.style.border = honwariBoutColor;
+          else aiteCard.style.outline = ketteisenBoutColor;
         }
-        if (honwariBoutColor != "") aiteCard.style.border = honwariBoutColor;
-        else aiteCard.style.outline = ketteisenBoutColor;
       }
     }
   }
@@ -2532,11 +2539,39 @@ redips.init = function () {
       rd.only.div[rank] = rank;
     }
   }
+  rd.hover.colorTd = "royalblue";
+
+  var intervalID;
 
   rd.event.changed = function (currentCell) {
+    var tooltipCheckbox = document.getElementById("tooltipCheckbox"),
+      chTooltip = document.createElement("span"),
+      change = currentCell.classList.contains("b2")
+        ? getChange(rd.obj.id, currentCell.dataset.r)
+        : "",
+      prevTip = document.getElementById("chTooltip");
+
+    if (!tooltipCheckbox.checked) {
+      if (typeof prevTip != "undefined" && prevTip != null) prevTip.remove();
+      chTooltip.id = "chTooltip";
+      chTooltip.innerHTML = "(" + rd.obj.id + " " + rd.obj.dataset.re + ")";
+      if (change != "") chTooltip.innerHTML += " <b>" + change + "</b>";
+      rd.obj.appendChild(chTooltip);
+    }
     var tip = document.getElementById("tip");
 
     if (typeof tip != "undefined" && tip != null) tip.remove();
+
+    var prevShifters = document.getElementsByClassName("shifter"),
+      prevShiftTo = document.getElementsByClassName("shiftTo");
+
+    if (typeof prevShiftTo[0] != "undefined" && prevShiftTo[0] != null)
+      prevShiftTo[0].classList.remove("shiftTo");
+    if (typeof prevShifters[0] != "undefined" && prevShifters[0] != null) {
+      while (prevShifters.length) prevShifters[0].classList.remove("shifter");
+    }
+    if (typeof intervalID != "undefined" && intervalID != null)
+      window.clearInterval(intervalID);
 
     if (
       currentCell.children.length > 0 &&
@@ -2544,12 +2579,78 @@ redips.init = function () {
       window.localStorage.getItem("radioDrop") == "shift" &&
       currentCell.classList.contains("b2")
     ) {
-      rd.hover.colorTd = "yellow";
+      var b2Cell = document.querySelectorAll(".b2"),
+        targetIndex = Array.prototype.slice.call(b2Cell).indexOf(currentCell),
+        originIndex = Array.prototype.slice
+          .call(b2Cell)
+          .indexOf(rd.obj.parentNode);
+
       var tooltip = document.createElement("span");
       tooltip.id = "tip";
-      tooltip.innerHTML = "shift→";
-      currentCell.prepend(tooltip);
-    } else rd.hover.colorTd = "chartreuse";
+      if (originIndex > targetIndex || originIndex < 0)
+        tooltip.setAttribute("data-direction", "up");
+      else if (originIndex < targetIndex)
+        tooltip.setAttribute("data-direction", "down");
+      if (!tooltipCheckbox.checked) currentCell.prepend(tooltip);
+      shiftDirect();
+      const interval = setInterval(shiftDirect, 1000);
+      intervalID = interval;
+      function shiftDirect() {
+        var prevShifters = document.getElementsByClassName("shifter"),
+          prevShiftTo = document.getElementsByClassName("shiftTo");
+
+        if (typeof prevShiftTo[0] != "undefined" && prevShiftTo[0] != null)
+          prevShiftTo[0].classList.remove("shiftTo");
+        if (typeof prevShifters[0] != "undefined" && prevShifters[0] != null) {
+          while (prevShifters.length)
+            prevShifters[0].classList.remove("shifter");
+        }
+        if (tooltip.dataset.direction == "down")
+          tooltip.dataset.direction = "up";
+        else tooltip.dataset.direction = "down";
+        if (tooltip.dataset.direction == "down") {
+          tooltip.innerHTML = "⮟";
+          for (var i = targetIndex; i < b2Cell.length; i++) {
+            if (
+              b2Cell[i].children.length == 0 ||
+              targetIndex == 57 ||
+              targetIndex == 85 ||
+              (b2Cell[i].children.length == 1 &&
+                b2Cell[i] === rd.obj.parentNode) ||
+              ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
+            ) {
+              //b2Cell[i].style.border = "none";
+              b2Cell[i].classList.add("shiftTo");
+              for (var j = i - 1; j >= targetIndex; i--, j--) {
+                for (var k = 0; k < b2Cell[j].children.length; k++)
+                  b2Cell[j].children[k].classList.add("shifter");
+              }
+              break;
+            }
+          }
+        } else {
+          tooltip.innerHTML = "⮝";
+          for (var i = targetIndex; i >= 0; i--) {
+            if (
+              b2Cell[i].children.length == 0 ||
+              targetIndex == 0 ||
+              targetIndex == 58 ||
+              (b2Cell[i].children.length == 1 &&
+                b2Cell[i] === rd.obj.parentNode) ||
+              ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
+            ) {
+              //b2Cell[i].style.border = "none";
+              b2Cell[i].classList.add("shiftTo");
+              for (var j = i + 1; j <= targetIndex; i++, j++) {
+                for (var k = 0; k < b2Cell[j].children.length; k++)
+                  b2Cell[j].children[k].classList.add("shifter");
+              }
+              break;
+            }
+          }
+        }
+      }
+    }
   };
 
   rd.event.dblClicked = function () {
@@ -2588,12 +2689,12 @@ redips.init = function () {
     hideHoshitori();
   };
 
-  /*
-  rd.event.notMoved = function() {
-    var currentCell = rd.findParent('TD', rd.obj); 
-    currentCell.style.removeProperty("box-shadow");
+  rd.event.notMoved = function () {
+    var currentCell = rd.findParent("TD", rd.obj);
+
+    //currentCell.style.removeProperty("box-shadow");
+    //rd.obj.removeChild(rd.obj.childNodes[1]);
   };
-  */
 
   rd.event.droppedBefore = function (targetCell) {
     var makuCounter = document.getElementById("makRik"),
@@ -2616,7 +2717,7 @@ redips.init = function () {
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
 
-      holder.innerHTML = thisCard.innerText;
+      holder.innerHTML = thisCard.childNodes[0].innerText;
       holder.href = thisCard.children[0].href;
       holder.target = "_blank";
       if (thisCard.id.startsWith("Ms")) holder.className = "msLink";
@@ -2635,30 +2736,69 @@ redips.init = function () {
       tarCellIsOfBanzuke2 &&
       targetCell.children.length > 0
     ) {
-      var tip = document.getElementById("tip");
+      var tooltip = document.getElementById("tip");
 
-      if (typeof tip != "undefined" && tip != null) tip.remove();
+      if (typeof tooltip != "undefined" && tooltip != null) {
+        var b2Cell = document.querySelectorAll(".b2"),
+          targetIndex = Array.prototype.slice.call(b2Cell).indexOf(targetCell);
 
-      var b2Cell = document.querySelectorAll(".b2"),
-        targetIndex = Array.prototype.slice.call(b2Cell).indexOf(targetCell);
-
-      for (var i = targetIndex + 1; i < b2Cell.length; i++) {
-        if (
-          b2Cell[i].children.length == 0 ||
-          (b2Cell[i].children.length == 1 &&
-            b2Cell[i] === thisCard.parentNode) ||
-          ((i == b2Cell.length - 1 || i == 53) && b2Cell[i].children.length > 0)
-        ) {
-          //b2Cell[i].style.border = "none";
-          for (var j = i - 1; j >= targetIndex; i--, j--)
-            rd.relocate(b2Cell[j], b2Cell[i], "instant");
-          redips.init();
-          break;
+        if (tooltip.dataset.direction == "down") {
+          for (var i = targetIndex; i < b2Cell.length; i++) {
+            if (
+              b2Cell[i].children.length == 0 ||
+              targetIndex == 57 ||
+              targetIndex == 85 ||
+              (b2Cell[i].children.length == 1 &&
+                b2Cell[i] === thisCard.parentNode) ||
+              ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
+            ) {
+              //b2Cell[i].style.border = "none";
+              for (var j = i - 1; j >= targetIndex; i--, j--)
+                rd.relocate(b2Cell[j], b2Cell[i], "instant");
+              redips.init();
+              break;
+            }
+          }
+        } else {
+          for (var i = targetIndex; i >= 0; i--) {
+            if (
+              b2Cell[i].children.length == 0 ||
+              targetIndex == 0 ||
+              targetIndex == 58 ||
+              (b2Cell[i].children.length == 1 &&
+                b2Cell[i] === thisCard.parentNode) ||
+              ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
+            ) {
+              //b2Cell[i].style.border = "none";
+              for (var j = i + 1; j <= targetIndex; i++, j++)
+                rd.relocate(b2Cell[j], b2Cell[i], "instant");
+              redips.init();
+              break;
+            }
+          }
         }
+        var prevShifters = document.getElementsByClassName("shifter"),
+          prevShiftTo = document.getElementsByClassName("shiftTo");
+
+        if (typeof prevShiftTo[0] != "undefined" && prevShiftTo[0] != null)
+          prevShiftTo[0].classList.remove("shiftTo");
+        if (typeof prevShifters[0] != "undefined" && prevShifters[0] != null) {
+          while (prevShifters.length)
+            prevShifters[0].classList.remove("shifter");
+        }
+        if (typeof intervalID != "undefined" && intervalID != null)
+          window.clearInterval(intervalID);
+        tooltip.remove();
       }
+    }
+    if (rd.obj.childNodes.length > 1) {
+      for (var i = rd.obj.childNodes.length - 1; i > 0; i--)
+        rd.obj.removeChild(rd.obj.childNodes[i]);
     }
   };
   rd.event.dropped = function (targetCell) {
+    if (targetCell.style.backgroundColor != "")
+      targetCell.style.backgroundColor = "";
     updateInfoCells();
     showSaving();
   };
@@ -2792,12 +2932,21 @@ function updateInfoCells() {
         if (j == 0) {
           targetChgCell.innerHTML = thisChg;
           resultCell.innerHTML = resultLink;
-          currRankCell.innerHTML = b2Cell[i].children[j].id;
+          currRankCell.innerHTML =
+            "<span>" + b2Cell[i].children[j].id + "</span>";
         } else {
           targetChgCell.innerHTML += "<br>" + thisChg;
           resultCell.innerHTML += "<br>" + resultLink;
-          currRankCell.innerHTML += "<br>" + b2Cell[i].children[j].id;
+          currRankCell.innerHTML +=
+            "<br><span>" + b2Cell[i].children[j].id + "</span>";
         }
+
+        var rikishiBgColor = window
+          .getComputedStyle(b2Cell[i].children[j])
+          .getPropertyValue("background-color");
+
+        currRankCell.children[j * 2].style.background = rikishiBgColor;
+        resultCell.children[j * 2].style.background = rikishiBgColor;
       }
     } else {
       resultCell.innerHTML = "";
@@ -2862,28 +3011,37 @@ redips.resetBanzuke = function () {
 };
 
 redips.arrange = function () {
-  var rikishi = document.querySelectorAll(".se");
+  var rikishi = document.querySelectorAll(".se"),
+    juCounter = document.getElementById("juRik"),
+    makuCounter = document.getElementById("makRik");
 
   for (var i = 0; i < rikishi.length; i++) {
     var rikishiRank = rikishi[i].id;
 
-    if (!rikishiRank.startsWith("Ms")) {
-      var holder = document.createElement("a");
+    if (
+      !rikishiRank.startsWith("Ms") &&
+      rikishiRank != rikishi[i].parentNode.dataset.r
+    ) {
+      if (!rikishi[i].parentNode.classList.contains("b2")) {
+        var holder = document.createElement("a");
 
-      holder.innerHTML = rikishi[i].innerText;
-      holder.href = rikishi[i].children[0].href;
-      holder.target = "_blank";
-      rikishi[i].parentNode.appendChild(holder);
-
+        holder.innerHTML = rikishi[i].innerText;
+        holder.href = rikishi[i].children[0].href;
+        holder.target = "_blank";
+        rikishi[i].parentNode.appendChild(holder);
+      } else {
+        if (rikishi[i].parentNode.dataset.r.startsWith("J"))
+          juCounter.innerHTML--;
+        else makuCounter.innerHTML--;
+      }
+      if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+      else makuCounter.innerHTML++;
       rd.moveObject({
         obj: rikishi[i],
-        target: document.querySelector('td[data-r="' + rikishiRank + '"]'),
+        target: document.querySelector('[data-r="' + rikishiRank + '"]'),
       });
-
-      if (rikishiRank.startsWith("J"))
-        document.getElementById("juRik").innerHTML++;
-      else document.getElementById("makRik").innerHTML++;
-    } else break;
+    }
+    //else break;
   }
   updateInfoCells();
 };
