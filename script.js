@@ -2556,7 +2556,7 @@ redips.init = function () {
       chTooltip.id = "chTooltip";
       chTooltip.innerHTML = "(" + rd.obj.id + " " + rd.obj.dataset.re + ")";
       if (change != "") chTooltip.innerHTML += " <b>" + change + "</b>";
-      rd.obj.appendChild(chTooltip);
+      rd.obj.prepend(chTooltip);
     }
     var tip = document.getElementById("tip");
 
@@ -2717,8 +2717,9 @@ redips.init = function () {
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
 
-      holder.innerHTML = thisCard.childNodes[0].innerText;
-      holder.href = thisCard.children[0].href;
+      holder.innerHTML =
+        thisCard.childNodes[thisCard.childNodes.length - 1].innerText;
+      holder.href = thisCard.children[thisCard.childNodes.length - 1].href;
       holder.target = "_blank";
       if (thisCard.id.startsWith("Ms")) holder.className = "msLink";
       currentCell.appendChild(holder);
@@ -2792,7 +2793,7 @@ redips.init = function () {
       }
     }
     if (rd.obj.childNodes.length > 1) {
-      for (var i = rd.obj.childNodes.length - 1; i > 0; i--)
+      for (var i = 0; i < rd.obj.childNodes.length; i++)
         rd.obj.removeChild(rd.obj.childNodes[i]);
     }
   };

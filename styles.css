@@ -396,10 +396,10 @@ textarea {
 #chTooltip {
   background: lightyellow;
   position: absolute;
-  margin-left: 3px;
+  margin-left: -100px;
   padding: 2px;
-  border-radius: 0 5px 5px 0;
-  box-shadow: dimgray 1px 1px 0px;
+  border-radius: 5px 0 0 5px;
+  box-shadow: dimgray -1px 1px 0px;
 }
 
 .shifter {
