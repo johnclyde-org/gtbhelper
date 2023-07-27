@@ -874,7 +874,8 @@ redips.init = function () {
         tooltip.setAttribute("data-direction", "up");
       else if (originIndex < targetIndex)
         tooltip.setAttribute("data-direction", "down");
-      if (!tooltipCheckbox.checked) currentCell.prepend(tooltip);
+      if (tooltipCheckbox.checked) tooltip.style.display = "none";
+      currentCell.prepend(tooltip);
       shiftDirect();
       const interval = setInterval(shiftDirect, 1000);
       intervalID = interval;
