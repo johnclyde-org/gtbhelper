@@ -5,9 +5,9 @@
 
 body {
   font-family: Helvetica, sans-serif;
-  background-image: url(gtb_bg.png);
   background-size: 150px;
   background-attachment: fixed;
+  background: #c5ffb1;
 }
 
 #gtb {
@@ -24,6 +24,7 @@ header {
   background-color: #c2dcff;
   color: #181818;
   box-shadow: 0 0 8px #8c8c8c;
+  border: 3px solid darkcyan;
 }
 
 h1 {
@@ -182,6 +183,8 @@ button {
     #00000017 80%,
     #00000069
   );
+  border: 3px solid darkcyan;
+  border-width: 0 3px 3px 3px;
 }
 
 #tableLiner {
@@ -227,11 +230,6 @@ table {
 
 #banzuke2 .tableTitle {
   background-color: #26c22d;
-}
-
-.juryoGuessTitle {
-  color: white;
-  background-color: #5cbf60 !important;
 }
 
 tr {
@@ -387,18 +385,16 @@ textarea {
   background: lightyellow;
   padding: 0 3px;
   text-align: center;
-  border-radius: 5px 5px 5px 0;
   color: black;
   font-size: larger;
-  box-shadow: 1px 1px 1px black;
+  border: 1px solid dimgray !important;
 }
 
 #chTooltip {
   background: lightyellow;
   position: absolute;
   padding: 2px;
-  border-radius: 5px 0 0 5px;
-  box-shadow: dimgray -1px 1px 0px;
+  border: 1px solid dimgray;
   transform: translate(-100%);
 }
 
@@ -507,4 +503,109 @@ footer {
   box-shadow: 0 0 8px #8c8c8c;
   font-size: 11pt;
   line-height: 16pt;
+}
+
+.darkm {
+  background: #3b523b;
+}
+
+.darkm header {
+  background: #324056;
+  color: #efefef;
+  border-color: #004747;
+}
+
+.darkm header h1 {
+  background: #999;
+}
+
+.darkm header a {
+  color: black;
+}
+
+.darkm #tableContainer {
+  border-color: #004747;
+}
+
+.darkm .banzukeTable td {
+  background-color: #3c3c3c;
+  border-color: #5b5b5b;
+}
+
+.darkm .b2 {
+  box-shadow: 3px 3px inset #ffffff17;
+}
+
+.darkm #banzuke1 .tableTitle {
+  background-color: olive;
+}
+
+.darkm #banzuke2 .tableTitle {
+  background-color: #007d00;
+}
+
+.darkm .banzukeTable th {
+  background-color: #434343;
+  color: #cfcfcf;
+  text-shadow: 1px 1px #00000082;
+}
+
+.darkm .banzukeTable td > a {
+  color: #88deff;
+}
+
+.darkm .se {
+}
+
+.darkm .se > a {
+  color: #e6e6e6;
+  text-shadow: 1px 1px #0000005e;
+}
+
+.darkm [id^="Ms"] > a {
+  color: white !important;
+}
+
+.darkm .intai {
+  background-color: #515151 !important;
+}
+
+.darkm [data-w="8"],
+.darkm [data-w="9"],
+.darkm [data-w="10"],
+.darkm [data-w="11"],
+.darkm [data-w="12"],
+.darkm [data-w="13"],
+.darkm [data-w="14"],
+.darkm [data-w="15"] {
+  background-color: #2e562e;
+}
+
+.darkm [data-w="0"],
+.darkm [data-w="1"],
+.darkm [data-w="2"],
+.darkm [data-w="3"],
+.darkm [data-w="4"],
+.darkm [data-w="5"],
+.darkm [data-w="6"],
+.darkm [data-w="7"] {
+  background-color: #6f3b39;
+}
+
+.darkm .cur span {
+  color: #dbdbdb;
+}
+
+.darkm .nte div {
+  background-color: #969696;
+}
+
+.darkm .ygroup td,
+.darkm .sgroup td {
+  background-color: #52522e;
+}
+
+.darkm .ogroup td,
+.darkm .kgroup td {
+  background-color: #504531;
 }

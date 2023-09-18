@@ -488,17 +488,17 @@ window.onload = function () {
       progressText.innerHTML = "Access token expired. Please sign out and try again";
     });
   });
-  */
 
   //****************************************************************************
-
-  // This must be a hyperlink
+    
+    // This must be a hyperlink
   $("#exportToCsv1").on("click", function (event) {
     exportTableToCSV.apply(this, [$("#banzuke1"), "banzuke1.csv"]);
   });
   $("#exportToCsv2").on("click", function (event) {
     exportTableToCSV.apply(this, [$("#banzuke2"), "banzuke2.csv"]);
   });
+  */
 
   if (window.localStorage.getItem("banzuke1") !== null) {
     window.localStorage.removeItem("banzuke1");
@@ -574,6 +574,37 @@ window.onload = function () {
     cards[i].addEventListener("mouseout", function () {
       this.style.border = "";
     });
+  }
+
+  var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
+
+  //check storage if dark mode was on or off
+  if (localStorage.getItem("mode") == "dark") {
+    darkmode(); //if dark mode was on, run this funtion
+  } else {
+    nodark(); //else run this funtion
+  }
+
+  checkbox.addEventListener("change", function () {
+    //check if the checkbox is checked or not
+    if (checkbox.checked) {
+      darkmode(); //if the checkbox is checked, run this funtion
+    } else {
+      nodark(); //else run this funtion
+    }
+    updateInfoCells();
+  });
+
+  function darkmode() {
+    document.body.classList.add("darkm"); //add a class to the body tag
+    checkbox.checked = true; //set checkbox to be checked state
+    localStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
+  }
+
+  function nodark() {
+    document.body.classList.remove("darkm"); //remove added class from body tag
+    checkbox.checked = false; //set checkbox to be unchecked state
+    localStorage.setItem("mode", "light"); //store a name & value to know that dark mode is off or light mode is on
   }
 
   function writeTableTitles(endedBashoDate) {
@@ -696,7 +727,8 @@ function showHoshitori() {
     var thisRikishi = theSekitori.find(text => text.startsWith(event.target.id));
     var rikishiNum = theSekitori.indexOf(thisRikishi);
   */
-  event.target.style.border = "2px solid blue";
+  if (event.target.classList.contains("redips-drag"))
+    event.target.style.border = "2px solid blue";
   /*
     if (document.getElementById("hoshiCheckbox").checked && hoshitori[rikishiNum].record.length > 0) {
       for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {

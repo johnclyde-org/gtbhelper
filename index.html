@@ -137,7 +137,7 @@
               type="checkbox"
               name="checkbox"
               autocomplete="on"
-            />Turn off tooltips</label
+            />Disable tooltips</label
           >
           <button id="resetBanzuke" onclick="redips.resetBanzuke()">
             Reset changes
@@ -146,6 +146,11 @@
             Auto-arrange to current ranks
           </button>
         </fieldset>
+        <div class="container">
+          <label for="ChangeTheme">
+            Dark Mode <input type="checkbox" id="ChangeTheme" />
+          </label>
+        </div>
       </div>
       <!--
     <div id="saveLoadProgress">
@@ -1224,7 +1229,7 @@
                     <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <th colspan="9" class="tableTitle juryoGuessTitle">
+                    <th colspan="9" class="tableTitle">
                       Juryo Guess - <span id="juRik">0</span>/28
                     </th>
                   </tr>
