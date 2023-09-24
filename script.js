@@ -226,7 +226,7 @@ function exportTableToCSV($table, filename) {
 }
 
 window.onload = function () {
-  var basho = "202307"; // The date of the basho just ended
+  var basho = "202309"; // The date of the basho just ended
 
   /*
   var CLIENT_ID = "527214845927-p6ofscooll9ettfc8vpb4f5dqbhome4h.apps.googleusercontent.com";
@@ -515,7 +515,7 @@ window.onload = function () {
   }
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
-      expireDate = new Date(Date.UTC(2023, 8, 24, 13, 8));
+      expireDate = new Date(Date.UTC(2023, 8, 24, 14));
 
     if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
     else
