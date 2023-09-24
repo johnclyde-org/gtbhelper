@@ -11,112 +11,112 @@ for (var i = 0; i < 100; i++) {
  * as plain text and then turn them into array like this.
  */
 var theSekitori = [
-  "Y1e Terunofuji 1-3-11",
-  "O1e Takakeisho 0-0-15",
-  "O1w Kirishima 6-7-2",
-  "S1e Hoshoryu 12-3 YK",
-  "S1w Daieisho 9-6",
-  "S2w Wakamotoharu 9-6",
-  "K1e Kotonowaka 11-4 K",
-  "K1w Abi 6-9",
-  "M1e Nishikigi 10-5 S",
-  "M1w Tobizaru 9-6",
-  "M2e Shodai 6-9",
-  "M2w Mitakeumi 3-12",
-  "M3e Midorifuji 4-11",
-  "M3w Meisei 8-7",
-  "M4e Asanoyama 8-4-3",
-  "M4w Ura 7-8",
-  "M5e Hiradoumi 5-10",
-  "M5w Onosho 6-9",
-  "M6e Hokuseiho 5-10",
-  "M6w Oho 6-9",
-  "M7e Takayasu 7-8",
-  "M7w Tamawashi 8-7",
-  "M8e Sadanoumi 5-10",
-  "M8w Nishikifuji 5-10",
-  "M9e Takanosho 8-7",
-  "M9w Hokutofuji 12-3 DK",
-  "M10e Kinbozan 7-8",
-  "M10w Myogiryu 6-9",
-  "M11e Kotoeko 8-7",
-  "M11w Tsurugisho 5-10",
-  "M12e Chiyoshoma 6-9",
-  "M12w Wakatakakage 0-0-15",
-  "M13e Gonoyama 10-5 K",
-  "M13w Kotoshoho 7-8",
-  "M14e Daishoho 6-9",
-  "M14w Shonannoumi 10-5 K",
-  "M15e Ryuden 10-5",
-  "M15w Takarafuji 9-6",
-  "M16e Endo 10-5",
-  "M16w Bushozan 3-12",
-  "M17e Aoiyama 9-6",
-  "M17w Hakuoho 11-4 GK",
-  "J1e Kagayaki 9-6",
-  "J1w Atamifuji 11-4 Y",
-  "J2e Roga 8-7",
-  "J2w Mitoryu 6-9",
-  "J3e Ichiyamamoto 4-9-2",
-  "J3w Shimazuumi 5-10",
-  "J4e Oshoma 7-8",
-  "J4w Tohakuryu 7-8",
-  "J5e Tamashoho 10-5",
-  "J5w Kitanowaka 10-5",
-  "J6e Fujiseiun 0-0-15",
-  "J6w Azumaryu 7-8",
-  "J7e Hakuyozan 6-9",
-  "J7w Churanoumi 8-7",
-  "J8e Takakento 7-8",
-  "J8w Akua 7-8",
-  "J9e Daiamami 11-4 D",
-  "J9w Tomokaze 10-5",
-  "J10e Chiyosakae 8-7",
-  "J10w Shimanoumi 5-10",
-  "J11e Chiyomaru 8-7",
-  "J11w Tsushimanada 3-12",
-  "J12e Shishi 9-6",
-  "J12w Hidenoumi 5-10",
-  "J13e Kiho 7-5-3",
-  "J13w Shiden 8-7",
-  "J14e Yuma 6-9",
-  "J14w Chiyonoumi 4-11",
-  "Ms1e Tokihayate 7-0 Y",
-  "Ms1w Enho 0-0-7",
-  "Ms2e Tochimusashi 2-5",
-  "Ms2w Kiryuko 3-4",
-  "Ms3e Onosato 4-3",
-  "Ms3w Mukainakano 4-3",
-  "Ms4e Kotokuzan 2-5",
-  "Ms4w Takahashi 5-2",
-  "Ms5e Ishizaki 5-2",
-  "Ms5w Chiyonokuni 0-0-7",
-  "Ms6e Kazekeno 3-4",
-  "Ms6w Kaisho 4-3",
-  "Ms7e Hayatefuji 3-2-2",
-  "Ms7w Tsukahara 6-1",
-  "Ms8e Chiyonoo 2-5",
-  "Ms8w Mineyaiba 3-4",
-  "Ms9e Otsuji 3-4",
-  "Ms9w Hitoshi 5-2",
-  "Ms10e Kotoozutsu 2-5",
-  "Ms10w Kamito 5-2",
-  "Ms11e Kanzaki 3-4",
-  "Ms11w Nabatame 4-3",
-  "Ms12e Terutsuyoshi 4-3",
-  "Ms12w Fukai 4-3",
-  "Ms13e Yago 3-4",
-  "Ms13w Fujinoyama 3-4",
-  "Ms14e Nishinoryu 2-5",
-  "Ms14w Tsurubayashi 2-5",
-  "Ms15e Tokushoryu 1-6",
-  "Ms15w Dewanoryu 3-4",
+  "Y1e Terunofuji 0-0-15",
+  "O1e Kirishima 9-6",
+  "O1w Takakeisho 11-4 Y",
+  "O2w Hoshoryu 8-7",
+  "S1e Daieisho 10-5",
+  "S1w Wakamotoharu 9-6",
+  "S2e Kotonowaka 9-6",
+  "K1e Nishikigi 5-10",
+  "K1w Tobizaru 6-9",
+  "M1e Hokutofuji 8-7",
+  "M1w Meisei 7-8",
+  "M2e Abi 9-6",
+  "M2w Asanoyama 9-6",
+  "M3e Shodai 8-7",
+  "M3w Tamawashi 2-13",
+  "M4e Takanosho 6-9",
+  "M4w Ura 9-6",
+  "M5e Gonoyama 9-6",
+  "M5w Shonannoumi 7-8",
+  "M6e Onosho 9-6",
+  "M6w Ryuden 6-9",
+  "M7e Takayasu 10-5",
+  "M7w Oho 5-10",
+  "M8e Kotoeko 6-9",
+  "M8w Hiradoumi 6-9",
+  "M9e Midorifuji 10-5",
+  "M9w Hakuoho 0-0-15",
+  "M10e Kinbozan 9-6",
+  "M10w Endo 9-6",
+  "M11e Mitakeumi 9-6",
+  "M11w Hokuseiho 10-5",
+  "M12e Takarafuji 7-8",
+  "M12w Sadanoumi 8-7",
+  "M13e Myogiryu 10-5",
+  "M13w Nishikifuji 5-10",
+  "M14e Aoiyama 5-10",
+  "M14w Kotoshoho 5-10",
+  "M15e Atamifuji 11-4 DK",
+  "M15w Chiyoshoma 3-12",
+  "M16e Kagayaki 5-10",
+  "M16w Tsurugisho 8-7",
+  "M17e Daishoho 3-12",
+  "J1e Roga 8-7",
+  "J1w Tamashoho 4-11",
+  "J2e Kitanowaka 8-7",
+  "J2w Daiamami 7-8",
+  "J3e Tomokaze 11-4",
+  "J3w Mitoryu 7-8",
+  "J4e Oshoma 8-7",
+  "J4w Tohakuryu 10-5",
+  "J5e Churanoumi 10-5",
+  "J5w Bushozan 9-6",
+  "J6e Shimazuumi 9-6",
+  "J6w Azumaryu 3-12",
+  "J7e Wakatakakage 0-0-15",
+  "J7w Ichiyamamoto 13-2 Y",
+  "J8e Shishi 9-6",
+  "J8w Chiyosakae 4-11",
+  "J9e Takakento 6-9",
+  "J9w Akua 6-9",
+  "J10e Chiyomaru 8-7",
+  "J10w Hakuyozan 4-11",
+  "J11e Shiden 6-9",
+  "J11w Tokihayate 8-7",
+  "J12e Shimanoumi 7-8",
+  "J12w Takahashi 8-7",
+  "J13e Kiho 4-8-3",
+  "J13w Asakoryu 7-8",
+  "J14e Onosato 12-3",
+  "J14w Tenshoho 8-7",
+  "Ms1e Tsukahara 1-6",
+  "Ms1w Yuma 4-3",
+  "Ms2e Hidenoumi 5-2",
+  "Ms2w Tsushimanada 3-4",
+  "Ms3e Kaisho 2-5",
+  "Ms3w Hitoshi 6-1 Y",
+  "Ms4e Chiyonoumi 3-4",
+  "Ms4w Kamito 2-5",
+  "Ms5e Fujiseiun 0-0-7",
+  "Ms5w Kiryuko 3-4",
+  "Ms6e Takerufuji 5-2",
+  "Ms6w Akiseyama 0-0-7",
+  "Ms7e Nabatame 2-4-1",
+  "Ms7w Tochimusashi 4-3",
+  "Ms8e Terutsuyoshi 2-5",
+  "Ms8w Fukai 4-3",
+  "Ms9e Kototebakari 4-3",
+  "Ms9w Hatsuyama 3-4",
+  "Ms10e Kotokuzan 3-4",
+  "Ms10w Kazekeno 3-4",
+  "Ms11e Hayatefuji 0-0-7",
+  "Ms11w Oshoumi 5-2",
+  "Ms12e Tochikamiyama 4-3",
+  "Ms12w Ryusei 1-6",
+  "Ms13e Asagyokusei 4-3",
+  "Ms13w Wakatakamoto 2-5",
+  "Ms14e Oyamatoumi 2-5",
+  "Ms14w Mineyaiba 3-4",
+  "Ms15e Ryuo 0-0-7",
+  "Ms15w Mudoho 4-3",
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the
  * following banzuke. If nobody retired then leave this array empty
  */
-var retiredRikishi = ["Chiyonokuni"];
+var retiredRikishi = ["Akiseyama"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the
  * browser's inspector (F12). Find the table and copy & paste the <tbody> node.
@@ -125,16 +125,16 @@ var retiredRikishi = ["Chiyonokuni"];
  * theSekitori array.
  */
 var sekitoriID = [
-  11927, 12191, 12231, 12451, 11985, 11980, 12270, 12094, 6596, 12203, 12130,
-  12210, 12352, 11946, 12291, 12226, 12314, 12043, 12646, 12453, 6480, 5944,
-  2879, 12351, 11855, 12239, 12721, 11784, 7153, 12113, 11785, 12370, 12688,
-  12449, 12040, 12162, 6594, 11728, 12055, 12117, 11786, 12796, 11845, 12664,
-  12516, 12406, 12362, 12013, 12717, 12575, 11976, 12548, 12702, 11723, 11943,
-  12320, 12114, 11918, 12273, 12427, 11736, 12024, 7240, 12342, 12599, 12026,
-  12779, 12141, 12165, 12255, 12542, 12412, 12674, 12711, 12836, 12709, 11809,
-  12773, 12710, 6642, 12767, 12075, 12596, 12448, 11840, 12557, 12561, 12704,
-  12316, 12416, 12733, 12597, 11868, 12610, 12425, 12534, 12523, 11755, 11726,
-  12592, 8900,
+  11927, 12231, 12191, 12451, 11985, 11980, 12270, 6596, 12203, 12239, 11946,
+  12094, 12291, 12130, 5944, 11855, 12226, 12688, 12162, 12043, 6594, 6480,
+  12453, 7153, 12314, 12352, 12796, 12721, 12055, 12210, 12646, 11728, 2879,
+  11784, 12351, 11786, 12449, 12664, 11785, 11845, 12113, 12040, 12516, 11976,
+  12548, 12273, 12427, 12406, 12717, 12575, 12320, 12117, 12013, 11723, 12370,
+  12362, 12599, 11736, 12114, 11918, 7240, 11943, 12141, 12542, 12024, 12773,
+  12779, 12710, 12836, 12709, 12448, 12165, 12026, 12342, 12075, 12704, 12255,
+  12416, 12702, 12711, 12780, 8900, 12597, 12674, 11868, 12610, 12729, 12732,
+  11809, 12767, 12596, 12634, 12531, 2892, 12285, 11814, 12236, 12557, 11988,
+  12593,
 ];
 
 //***** Just update the "basho" variable and you're all done. *****
@@ -514,9 +514,15 @@ window.onload = function () {
     window.localStorage.removeItem("picks");
   }
   if (window.localStorage.getItem("savedBanzuke") !== null) {
-    document.getElementById("tableLiner").innerHTML =
-      window.localStorage.getItem("savedBanzuke");
-  } else {
+    var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
+      expireDate = new Date(Date.UTC(2023, 8, 24, 13, 8));
+
+    if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
+    else
+      document.getElementById("tableLiner").innerHTML =
+        window.localStorage.getItem("savedBanzuke");
+  }
+  if (window.localStorage.getItem("savedBanzuke") === null) {
     writeTableTitles(basho);
     populateSlots();
   }
@@ -560,7 +566,7 @@ window.onload = function () {
       clearTimeout(time);
 
       time = setTimeout(function () {
-        hideHoshitori();
+        unhighlight();
         saveBanzuke();
         showSaving();
       }, 1000);
@@ -570,10 +576,8 @@ window.onload = function () {
   var cards = document.querySelectorAll(".redips-drag");
 
   for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseover", showHoshitori.bind(this));
-    cards[i].addEventListener("mouseout", function () {
-      this.style.border = "";
-    });
+    cards[i].addEventListener("mouseover", highlightRikishi.bind(this));
+    cards[i].addEventListener("mouseout", unhighlight.bind(this));
   }
 
   var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
@@ -702,7 +706,7 @@ window.onload = function () {
             card.removeAttribute("data-ko");
           }
 
-          //card.setAttribute("onmouseout", "hideHoshitori()");
+          //card.setAttribute("onmouseout", "unhighlight()");
 
           //cell[i].appendChild(holder);
           cell[i].appendChild(card);
@@ -721,14 +725,16 @@ window.onload = function () {
   }
 };
 
-function showHoshitori() {
+function highlightRikishi() {
+  // I commented out the code which showed the hoshitori
+
   /*
   if (event.target.classList.contains("redips-drag")) {
     var thisRikishi = theSekitori.find(text => text.startsWith(event.target.id));
     var rikishiNum = theSekitori.indexOf(thisRikishi);
   */
   if (event.target.classList.contains("redips-drag"))
-    event.target.style.border = "2px solid blue";
+    event.target.classList.add("hoverRikishi");
   /*
     if (document.getElementById("hoshiCheckbox").checked && hoshitori[rikishiNum].record.length > 0) {
       for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
@@ -791,8 +797,15 @@ function hideNextRank() {
 }
 */
 
-function hideHoshitori() {
-  event.target.style.border = "";
+function unhighlight() {
+  // I commented out the code which hid the hoshitori
+
+  var rikishiBlue = document.getElementsByClassName("hoverRikishi");
+
+  if (typeof rikishiBlue[0] != "undefined" && rikishiBlue[0] != null) {
+    while (rikishiBlue.length) rikishiBlue[0].classList.remove("hoverRikishi");
+  }
+
   /*
   if (document.getElementById("hoshiCheckbox").checked) {
     var rikishiCard = document.querySelectorAll(".redips-drag");
@@ -988,7 +1001,7 @@ redips.init = function () {
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
           //b1Cell[i].style.removeProperty("border");
-          hideHoshitori();
+          unhighlight();
           updateInfoCells();
           saveBanzuke();
         },
@@ -999,7 +1012,7 @@ redips.init = function () {
 
   rd.event.clicked = function (currentCell) {
     //currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
-    hideHoshitori();
+    unhighlight();
   };
 
   rd.event.notMoved = function () {
@@ -1118,7 +1131,7 @@ redips.init = function () {
   };
 
   rd.event.finish = function () {
-    hideHoshitori();
+    unhighlight();
     saveBanzuke();
   };
 };
@@ -1360,13 +1373,14 @@ function getChange(thisRank, targetCellRank) {
   if (thisRank == targetCellRank) chg = "─";
   else {
     const change = [
-      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!"],
-      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"],
-      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!"],
-      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"],
-      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ "],
-      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
-      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ "],
+      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
     ];
     var r1, r2;
 
@@ -1378,7 +1392,8 @@ function getChange(thisRank, targetCellRank) {
         r1 = 1;
         break;
       case "S":
-        r1 = 2;
+        if (!thisRank.startsWith("Sd")) r1 = 2;
+        else r1 = 7;
         break;
       case "K":
         r1 = 3;
@@ -1398,13 +1413,15 @@ function getChange(thisRank, targetCellRank) {
         r2 = 1;
         break;
       case "S":
-        r2 = 2;
+        if (!targetCellRank.startsWith("Sd")) r2 = 2;
+        else r2 = 7;
         break;
       case "K":
         r2 = 3;
         break;
       case "M":
-        r2 = 4;
+        if (!targetCellRank.startsWith("Ms")) r2 = 4;
+        else r2 = 6;
         break;
       default:
         r2 = 5;
@@ -1412,8 +1429,14 @@ function getChange(thisRank, targetCellRank) {
 
     if (change[r1][r2] != "calc") chg = change[r1][r2];
     else {
-      var thisRankNum = parseInt(thisRank.slice(1, -1)),
-        targetRankNum = parseInt(targetCellRank.slice(1, -1));
+      var thisRankNum =
+          r1 == 6 || r1 == 7
+            ? parseInt(thisRank.slice(2, -1))
+            : parseInt(thisRank.slice(1, -1)),
+        targetRankNum =
+          r2 == 6 || r2 == 7
+            ? parseInt(targetCellRank.slice(2, -1))
+            : parseInt(targetCellRank.slice(1, -1));
 
       if (thisRank.slice(-1) == "w") thisRankNum += 0.5;
       if (targetCellRank.slice(-1) == "w") targetRankNum += 0.5;

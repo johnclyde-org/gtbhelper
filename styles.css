@@ -505,6 +505,21 @@ footer {
   line-height: 16pt;
 }
 
+#darkMode {
+  height: fit-content;
+  font-weight: bold;
+  margin: 5px;
+  background: #999;
+  padding: 0 4px;
+  border-radius: 5px;
+  border: 1px outset #949494;
+  color: black;
+}
+
+.hoverRikishi {
+  border: 2px solid blue !important;
+}
+
 .darkm {
   background: #3b523b;
 }
@@ -608,4 +623,9 @@ footer {
 .darkm .ogroup td,
 .darkm .kgroup td {
   background-color: #504531;
+}
+
+.darkm footer {
+  color: white;
+  background: #363655;
 }
