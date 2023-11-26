@@ -54,14 +54,14 @@ var theSekitori = [
   "M16w Nishikifuji 6-9",
   "M17e Kitanowaka 5-10",
   "J1e Aoiyama 8-7",
-  "J1w Kotoshoho 12-3",
+  "J1w Kotoshoho 12-3 Y",
   "J2e Bushozan 10-5",
   "J2w Shimazuumi 9-6",
   "J3e Kagayaki 5-10",
   "J3w Oshoma 6-9",
   "J4e Daiamami 9-6",
   "J4w Mitoryu 9-6",
-  "J5e Onosato 12-3",
+  "J5e Onosato 12-3 D",
   "J5w Shishi 6-9",
   "J6e Chiyoshoma 8-7",
   "J6w Hakuoho 0-0-15",
@@ -516,7 +516,7 @@ window.onload = function () {
   }
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
-      expireDate = new Date(Date.UTC(2023, 10, 26, 9));
+      expireDate = new Date(Date.UTC(2023, 10, 26, 9, 13));
 
     if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
     else
