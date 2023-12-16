@@ -30,7 +30,9 @@
       </h1>
       <div id="links">
         <a href="previous.html">Previous basho</a>
-        <a href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx" target="_blank"
+        <a
+          href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx"
+          onclick="window.open('http://sumodb.sumogames.de/gtb/GTBEntry.aspx')"
           >GTB Entry Form</a
         >
       </div>
@@ -145,6 +147,27 @@
           <button id="resetBanzuke" onclick="redips.resetBanzuke()">
             Reset changes
           </button>
+        </fieldset>
+        <fieldset id="saveLoad" class="option">
+          <legend>Save/load drafts</legend>
+          <button id="saveDraft">Save draft</button>
+          <dialog id="saveDialog">
+            <input
+              type="text"
+              name=""
+              id="draftName"
+              placeholder="name (optional)"
+              autocomplete="off"
+            />
+            <br />
+            <button id="saveDraftButton">Save</button>
+            <button id="closeDialog">Cancel</button>
+          </dialog>
+          <div id="draftsTableContainer">
+            <table id="draftsTable">
+              <tbody></tbody>
+            </table>
+          </div>
         </fieldset>
         <label id="darkMode">
           Dark Mode <input type="checkbox" id="ChangeTheme" />

@@ -490,6 +490,10 @@ td .redips-drag,
   position: relative;
 }
 
+.redips-drag:hover {
+  border: 2px solid blue;
+}
+
 footer {
   padding: 10px;
   background-color: #cbd3de;
@@ -514,10 +518,6 @@ footer {
   border-radius: 5px;
   border: 1px outset #949494;
   color: black;
-}
-
-.hoverRikishi {
-  border: 2px solid blue !important;
 }
 
 .darkm {
@@ -632,4 +632,35 @@ footer {
 
 .darkm .new {
   color: white;
+}
+
+#draftsTable {
+  color: black;
+  margin-top: 5px;
+  border-spacing: 3px;
+}
+
+#draftsTable td {
+  height: 20px;
+  border: none;
+  white-space: nowrap;
+  text-align: center;
+  padding: 0 5px;
+}
+
+#saveDialog {
+  left: auto;
+  right: auto;
+}
+
+#draftsTableContainer {
+  max-height: 80px;
+  overflow-y: scroll;
+}
+
+.dname {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
 }

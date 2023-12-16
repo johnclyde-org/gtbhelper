@@ -229,270 +229,6 @@ function exportTableToCSV($table, filename) {
 window.onload = function () {
   var basho = "202311"; // The date of the basho just ended
 
-  /*
-  var CLIENT_ID = "527214845927-p6ofscooll9ettfc8vpb4f5dqbhome4h.apps.googleusercontent.com";
-  var API_KEY = "AIzaSyBiIfRASPUPjYmDLggGBQKCw63h-5B073o";
-  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-  // https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.appfolder https://www.googleapis.com/auth/drive.install
-  var SCOPES = "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.resource";
-  var signinButton = document.getElementById("signinButton");
-  var signoutButton = document.getElementById("signoutButton");
-  var saveToDriveButton = document.getElementById("saveToDrive");
-  var loadSaveButton = document.getElementById("loadSave");
-  var messageLine = document.getElementById("messageLine");
-  var progressText = document.getElementById("progressText");
-  let tokenClient;
-  let gapiInited = false;
-  let gisInited = false;
-
-  signinButton.style.display = "none";
-  signoutButton.style.display = "none";
-  saveToDriveButton.style.display = "none";
-  loadSaveButton.style.display = "none";
-
-  gapiLoaded();
-  gisLoaded();
-
-  function gapiLoaded() {
-    gapi.load("client", initializeGapiClient);
-  }
-
-  async function initializeGapiClient() {
-    await gapi.client.init({
-      apiKey: API_KEY,
-      discoveryDocs: DISCOVERY_DOCS
-    });
-    gapiInited = true;
-    maybeEnableButtons();
-  }
-
-  function gisLoaded() {
-    tokenClient = google.accounts.oauth2.initTokenClient({
-      client_id: CLIENT_ID,
-      scope: SCOPES, 
-      prompt: "", 
-      callback: ""
-    });
-    gisInited = true;
-    maybeEnableButtons();
-  }
-
-  function maybeEnableButtons() {
-    if (gapiInited && gisInited) {
-      signinButton.style.display = "inline-block";
-      messageLine.innerHTML = "Save or load your banzuke via Google Drive";
-      progressText.innerHTML = "";
-    }
-  }
-
-  signinButton.onclick = () => handleAuthClick()
-  function handleAuthClick() {
-    tokenClient.callback = async (resp) => {
-      if (resp.error !== undefined) 
-        throw (resp);
-      signinButton.style.display = "none";
-      signoutButton.style.display = "inline-block";
-      saveToDriveButton.style.display = "inline-block";
-      loadSaveButton.style.display = "inline-block";
-      messageLine.innerHTML = "Please wait...";
-      checkFolder("GTB Helper Save (do not modify)");
-    };
-
-    if (gapi.client.getToken() === null) 
-      tokenClient.requestAccessToken({ prompt: "consent" });
-    else 
-      tokenClient.requestAccessToken({ prompt: "" });
-  }
-
-  signoutButton.onclick = () => handleSignoutClick()
-  function handleSignoutClick() {
-    const token = gapi.client.getToken();
-
-    if (token !== null) {
-      google.accounts.oauth2.revoke(token.access_token);
-      gapi.client.setToken("");
-      signinButton.style.display = "inline-block";
-      signoutButton.style.display = "none";
-      saveToDriveButton.style.display = "none";
-      loadSaveButton.style.display = "none";
-      messageLine.innerHTML = "Save or load your banzuke via Google Drive";
-      progressText.innerHTML = "";
-    }
-  }
-
-  function checkFolder(folderName) {
-    gapi.client.drive.files.list({
-      'q': "name = '" + folderName + "'"
-    }).then(function (response) {
-      var files = response.result.files;
-
-      if (files && files.length > 0) {
-        for (var i = 0; i < files.length; i++) {
-          var file = files[i];
-
-          window.localStorage.setItem("backupFolderId", file.id);
-          //console.log("Folder available");
-          showSave();
-        }
-      }
-      else {
-        createFolder("GTB Helper Save (do not modify)");
-        messageLine.innerHTML = "No save";
-        loadSaveButton.disabled = true;
-      }
-    });
-  }
-
-  function createFolder(folderName) {
-    var access_token = gapi.auth.getToken().access_token;
-    var request = gapi.client.request({
-      "path": "drive/v2/files",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json", 
-        "Authorization": "Bearer " + access_token
-      }, 
-      "body": {
-        "title": folderName, 
-        "mimeType": "application/vnd.google-apps.folder"
-      }
-    });
-    request.execute(function (response) {
-      window.localStorage.setItem("backupFolderId", response.id);
-    })
-  }
-
-  function showSave() {
-    var saveId = "";
-
-    gapi.client.drive.files.list({
-      'q': "name = 'gtb_helper_save.txt' and parents in '" + 
-           window.localStorage.getItem("backupFolderId") + "'"
-    }).then(function (response) {
-      var files = response.result.files;
-
-      if (files && files.length > 0) {
-        for (var i = 0; i < files.length; i++) {
-          var saveId = files[i].id;
-
-          gapi.client.drive.files.get({
-            "fileId": saveId, 
-            "fields": "modifiedTime"
-          }).then(function (res) {
-            var modifiedTime = moment(res.result.modifiedTime, 
-              "YYYY-MM-DDThh:mm:ss.SSSZ").format("dddd, MMMM Do YYYY, h:mm:ss a");
-
-            messageLine.setAttribute("data-saveId", saveId);
-            messageLine.innerHTML = "From " + modifiedTime;
-            loadSaveButton.disabled = false;
-          });
-        }
-      }
-      else {
-        loadSaveButton.disabled = true;
-        messageLine.innerHTML = "No save";
-      }
-    })
-  }
-
-  function uploadSave() {
-    const blob = new Blob([window.localStorage.getItem("picks")], { type: "plain/text" });
-    const parentFolder = window.localStorage.getItem("backupFolderId");
-    var metadata = {
-      name: "gtb_helper_save.txt", 
-      mimeType: "plain/text", 
-      parents: [parentFolder]
-    };
-    var formData = new FormData();
-
-    formData.append("metadata", new Blob([JSON.stringify(metadata)], { type: "application/json" }));
-    formData.append("file", blob);
-
-    fetch("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart", {
-      method: "POST", 
-      headers: new Headers({ "Authorization": "Bearer " + gapi.auth.getToken().access_token }), 
-      body: formData
-    }).then(function (response) {
-      if (response.ok) {
-        progressText.innerHTML = "Saved to Drive!";
-        showSave();
-        setTimeout(function() {
-          progressText.innerHTML = "";
-        }, 1000);
-      }
-      else {
-        console.error(response);
-        progressText.innerHTML = "Access token expired. Please sign out and try again";
-      }
-      //return response.json();
-    }).catch(function(err) {});
-  }
-
-  function updateSave() {
-    var saveId = messageLine.getAttribute("data-saveId");
-    var url = "https://www.googleapis.com/upload/drive/v3/files/" + saveId + "?uploadType=media";
-    
-    fetch(url, {
-      method: "PATCH",
-      headers: new Headers({
-        Authorization: "Bearer " + gapi.auth.getToken().access_token,
-        "Content-type": "plain/text; charset=UTF-8"
-      }), 
-      body: window.localStorage.getItem("picks")
-    }).then(function (response) {
-      if (response.ok) {
-        progressText.innerHTML = "Saved to Drive!";
-        showSave();
-        setTimeout(function() {
-          progressText.innerHTML = "";
-        }, 1000);
-      }
-      else {
-        console.error(response);
-        progressText.innerHTML = "Access token expired. Please sign out and try again";
-      }
-    }).catch(function(err) {});
-  }
-
-  function b64_to_utf8(str) {
-    return decodeURIComponent(escape(window.atob(str)));
-  }
-
-  saveToDriveButton.addEventListener("click", function() {
-    if (window.localStorage.getItem("picks") !== null) {
-      progressText.innerHTML = "Please wait...";
-
-      if (messageLine.innerHTML == "No save") 
-        uploadSave();
-      else 
-        updateSave();
-    }
-  });
-
-  loadSaveButton.addEventListener("click", function() {
-    var saveId = messageLine.getAttribute("data-saveId");
-
-    progressText.innerHTML = "Please wait...";
-
-    gapi.client.drive.files.get({
-      fileId: saveId, 
-      alt: "media"
-    }).then(function (res) {
-      var banzukeHtml = b64_to_utf8(btoa(res.body));
-
-      document.getElementById("tableLiner").innerHTML = banzukeHtml;
-      window.localStorage.setItem("picks", banzukeHtml);
-      redips.init();
-      progressText.innerHTML = "";
-    }).catch(function (err) {
-      console.error(err);
-      progressText.innerHTML = "Access token expired. Please sign out and try again";
-    });
-  });
-
-  //****************************************************************************
-    
-  */
   // This must be a hyperlink
   $("#exportToCsv1").on("click", function (event) {
     exportTableToCSV.apply(this, [$("#banzuke1"), "banzuke1.csv"]);
@@ -527,21 +263,6 @@ window.onload = function () {
     writeTableTitles(basho);
     populateSlots();
   }
-  if (window.localStorage.getItem("colCheck1") === null) {
-    var columnCheckbox = document.querySelectorAll(".checkedByDefault");
-
-    for (var i = 0; i < columnCheckbox.length; i++)
-      columnCheckbox[i].checked = true;
-  } else {
-    for (var i = 1; i < 8; i++) {
-      var columnCheck = document.querySelectorAll(".columnCheckbox")[i - 1];
-      var check = JSON.parse(
-        window.localStorage.getItem("colCheck" + String(i)),
-      );
-
-      columnCheck.checked = check;
-    }
-  }
 
   var radioButton = document.getElementsByClassName("checkbox"),
     radioLocal = window.localStorage.getItem("radioButton"),
@@ -567,18 +288,10 @@ window.onload = function () {
       clearTimeout(time);
 
       time = setTimeout(function () {
-        unhighlight();
         saveBanzuke();
         showSaving();
       }, 1000);
     });
-  }
-
-  var cards = document.querySelectorAll(".redips-drag");
-
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseover", highlightRikishi.bind(this));
-    cards[i].addEventListener("mouseout", unhighlight.bind(this));
   }
 
   var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
@@ -599,6 +312,99 @@ window.onload = function () {
     }
     updateInfoCells();
   });
+
+  var drafts = window.localStorage.getItem("drafts");
+
+  if (drafts !== null) {
+    var draftsTable = document.getElementById("draftsTable");
+    var draftsJSON = JSON.parse(drafts);
+
+    for (var i = 0; i < draftsJSON.length; i++) {
+      var draftRow = document.createElement("tr");
+
+      draftRow.innerHTML =
+        '<td title="' +
+        draftsJSON[i].name +
+        '" class="dname"><b>' +
+        draftsJSON[i].name +
+        "</b></td><td>" +
+        draftsJSON[i].date +
+        '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
+      draftsTable.children[0].appendChild(draftRow);
+    }
+  }
+  if (window.localStorage.getItem("colCheck1") === null) {
+    var columnCheckbox = document.querySelectorAll(".checkedByDefault");
+
+    for (var i = 0; i < columnCheckbox.length; i++)
+      columnCheckbox[i].checked = true;
+  } else {
+    for (var i = 1; i < 8; i++) {
+      var columnCheck = document.querySelectorAll(".columnCheckbox")[i - 1];
+      var check = JSON.parse(
+        window.localStorage.getItem("colCheck" + String(i)),
+      );
+
+      columnCheck.checked = check;
+    }
+  }
+
+  var saveDialog = document.getElementById("saveDialog");
+
+  document.getElementById("saveDraft").addEventListener("click", function () {
+    saveDialog.show();
+  });
+  document
+    .getElementById("saveDraftButton")
+    .addEventListener("click", function () {
+      if (window.localStorage.getItem("savedBanzuke") !== null) {
+        var draftsTable = document.getElementById("draftsTable");
+        var draftName = document.getElementById("draftName").value;
+        var currentDate = new Date().toLocaleString();
+        var draftCount = draftsTable.children[0].children.length + 1;
+        var draft = {
+          name: "",
+          date: "",
+          mainContent: "",
+        };
+        var draftRow = document.createElement("tr");
+        var draftsString = window.localStorage.getItem("drafts");
+        var draftsJSON;
+
+        draft.name = draftName;
+        draft.date = currentDate;
+        draft.mainContent = window.localStorage.getItem("savedBanzuke");
+        if (draftsString !== null) draftsJSON = JSON.parse(draftsString);
+        else draftsJSON = [];
+        draftsJSON.unshift(draft);
+        window.localStorage.setItem("drafts", JSON.stringify(draftsJSON));
+        draftRow.innerHTML =
+          '<td title="' +
+          draftName +
+          '" class="dname"><b>' +
+          draftName +
+          "</b></td><td>" +
+          currentDate +
+          '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
+        draftsTable.children[0].prepend(draftRow);
+        document.getElementById("draftName").value = "";
+      }
+      saveDialog.close();
+    });
+  document.getElementById("closeDialog").addEventListener("click", function () {
+    saveDialog.close();
+  });
+  document
+    .getElementById("draftName")
+    .addEventListener("keypress", function () {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("saveDraftButton").click();
+      }
+    });
 
   function darkmode() {
     document.body.classList.add("darkm"); //add a class to the body tag
@@ -726,100 +532,65 @@ window.onload = function () {
   }
 };
 
-function highlightRikishi() {
-  // I commented out the code which showed the hoshitori
+function loadDraft() {
+  var draftDate = event.target.parentNode.previousSibling.innerText;
 
-  /*
-  if (event.target.classList.contains("redips-drag")) {
-    var thisRikishi = theSekitori.find(text => text.startsWith(event.target.id));
-    var rikishiNum = theSekitori.indexOf(thisRikishi);
-  */
-  if (event.target.classList.contains("redips-drag"))
-    event.target.classList.add("hoverRikishi");
-  /*
-    if (document.getElementById("hoshiCheckbox").checked && hoshitori[rikishiNum].record.length > 0) {
-      for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
-        var aite = theSekitori.find(text => text.split(' ')[1] == hoshitori[rikishiNum].aite[i]);
-        
-        if (aite) {
-          var aiteCard = document.getElementById(aite.split(' ')[0]);
-          var honwariBoutColor = "", ketteisenBoutColor = "";
+  if (confirm("Load draft from " + draftDate + "?")) {
+    var draftsTable = document.getElementById("draftsTable");
+    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
 
-          switch (hoshitori[rikishiNum].record[i]) {
-            case 0: 
-              honwariBoutColor = "2px solid red"; break;
-            case 1: 
-              honwariBoutColor = "2px solid black"; break;
-            case 2:
-              honwariBoutColor = "2px dashed red"; break;
-            case 3: 
-              honwariBoutColor = "2px dashed black"; break;
-            case 4: 
-              ketteisenBoutColor = "2px solid red"; break;
-            default: 
-              ketteisenBoutColor = "2px solid black";
-          }
-          if (honwariBoutColor != "") 
-            aiteCard.style.border = honwariBoutColor;
-          else 
-            aiteCard.style.outline = ketteisenBoutColor;
-        }
+    for (var i = 0; i < allDrafts.length; i++) {
+      if (allDrafts[i].date == draftDate)
+        document.getElementById("tableLiner").innerHTML =
+          allDrafts[i].mainContent;
+    }
+    saveBanzuke();
+    redips.init();
+    if (window.localStorage.getItem("colCheck1") === null) {
+      var columnCheckbox = document.querySelectorAll(".checkedByDefault");
+
+      for (var i = 0; i < columnCheckbox.length; i++)
+        columnCheckbox[i].checked = true;
+    } else {
+      for (var i = 1; i < 8; i++) {
+        var columnCheck = document.querySelectorAll(".columnCheckbox")[i - 1];
+        var check = JSON.parse(
+          window.localStorage.getItem("colCheck" + String(i)),
+        );
+
+        columnCheck.checked = check;
       }
     }
-  }
-  */
-}
+    var noteCells = document.querySelectorAll(".nte");
 
-/*
-function showNextRank(thisRank) {
-  if (event.target.className == "hold") {
-    var cards = document.querySelectorAll(".se");
+    for (var i = 2; i < noteCells.length; i++) {
+      let time = 0;
+      noteCells[i].children[0].contentEditable = "true";
+      noteCells[i].children[0].addEventListener("input", function () {
+        // Reset the timer
+        clearTimeout(time);
 
-    event.target.parentNode.style.boxShadow = "0 0 0 2px inset blue";
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i].id == thisRank) {
-        var cardCurrentRank = cards[i].parentNode.id;
-        var table1Cell = document.querySelectorAll('.' + cardCurrentRank);
-        table1Cell[0].style.boxShadow = "0 0 0 2px inset black";
-        break;
-      }
+        time = setTimeout(function () {
+          saveBanzuke();
+          showSaving();
+        }, 1000);
+      });
     }
   }
 }
 
-function hideNextRank() {
-  var cell = document.getElementsByTagName("td");
-    
-  for (var j = 0; j < cell.length; j++) {
-    if (cell[j].style.boxShadow != "rgba(0, 0, 0, 0.16) 0px 0px 0px 2px inset") {
-      cell[j].style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 0px 0px 2px inset";
+function deleteDraft() {
+  var draftDate = event.target.parentNode.previousSibling.innerText;
+
+  if (confirm("Delete draft from " + draftDate + "?")) {
+    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
+
+    for (var i = 0; i < allDrafts.length; i++) {
+      if (allDrafts[i].date == draftDate) allDrafts.splice(i, 1);
     }
+    window.localStorage.setItem("drafts", JSON.stringify(allDrafts));
+    event.target.parentNode.parentNode.remove();
   }
-}
-*/
-
-function unhighlight() {
-  // I commented out the code which hid the hoshitori
-
-  var rikishiBlue = document.getElementsByClassName("hoverRikishi");
-
-  if (typeof rikishiBlue[0] != "undefined" && rikishiBlue[0] != null) {
-    while (rikishiBlue.length) rikishiBlue[0].classList.remove("hoverRikishi");
-  }
-
-  /*
-  if (document.getElementById("hoshiCheckbox").checked) {
-    var rikishiCard = document.querySelectorAll(".redips-drag");
-    
-    for (var j = 0; j < rikishiCard.length; j++) {
-      if (rikishiCard[j].style.border != "") {
-        rikishiCard[j].style.border = "";
-      }
-      if (rikishiCard[j].style.outline != "") 
-        rikishiCard[j].style.outline = "";
-    }
-  }
-  */
 }
 
 function saveRadio(radioButton) {
@@ -1011,11 +782,6 @@ redips.init = function () {
     }
   };
 
-  rd.event.clicked = function (currentCell) {
-    //currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
-    unhighlight();
-  };
-
   rd.event.notMoved = function () {
     var currentCell = rd.findParent("TD", rd.obj);
 
@@ -1132,7 +898,6 @@ redips.init = function () {
   };
 
   rd.event.finish = function () {
-    unhighlight();
     saveBanzuke();
   };
 };
@@ -1333,39 +1098,41 @@ redips.resetBanzuke = function () {
 };
 
 redips.arrange = function () {
-  var rikishi = document.querySelectorAll(".se"),
-    juCounter = document.getElementById("juRik"),
-    makuCounter = document.getElementById("makRik");
+  if (confirm("Confirm auto-arrange?") == true) {
+    var rikishi = document.querySelectorAll(".se"),
+      juCounter = document.getElementById("juRik"),
+      makuCounter = document.getElementById("makRik");
 
-  for (var i = 0; i < rikishi.length; i++) {
-    var rikishiRank = rikishi[i].id;
+    for (var i = 0; i < rikishi.length; i++) {
+      var rikishiRank = rikishi[i].id;
 
-    if (
-      !rikishiRank.startsWith("Ms") &&
-      rikishiRank != rikishi[i].parentNode.dataset.r
-    ) {
-      if (!rikishi[i].parentNode.classList.contains("b2")) {
-        var holder = document.createElement("a");
+      if (
+        !rikishiRank.startsWith("Ms") &&
+        rikishiRank != rikishi[i].parentNode.dataset.r
+      ) {
+        if (!rikishi[i].parentNode.classList.contains("b2")) {
+          var holder = document.createElement("a");
 
-        holder.innerHTML = rikishi[i].innerText;
-        holder.href = rikishi[i].children[0].href;
-        holder.target = "_blank";
-        rikishi[i].parentNode.appendChild(holder);
-      } else {
-        if (rikishi[i].parentNode.dataset.r.startsWith("J"))
-          juCounter.innerHTML--;
-        else makuCounter.innerHTML--;
+          holder.innerHTML = rikishi[i].innerText;
+          holder.href = rikishi[i].children[0].href;
+          holder.target = "_blank";
+          rikishi[i].parentNode.appendChild(holder);
+        } else {
+          if (rikishi[i].parentNode.dataset.r.startsWith("J"))
+            juCounter.innerHTML--;
+          else makuCounter.innerHTML--;
+        }
+        if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+        else makuCounter.innerHTML++;
+        rd.moveObject({
+          obj: rikishi[i],
+          target: document.querySelector('[data-r="' + rikishiRank + '"]'),
+        });
       }
-      if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
-      else makuCounter.innerHTML++;
-      rd.moveObject({
-        obj: rikishi[i],
-        target: document.querySelector('[data-r="' + rikishiRank + '"]'),
-      });
+      //else break;
     }
-    //else break;
+    updateInfoCells();
   }
-  updateInfoCells();
 };
 
 function getChange(thisRank, targetCellRank) {
