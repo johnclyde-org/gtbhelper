@@ -772,7 +772,6 @@ redips.init = function () {
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
           //b1Cell[i].style.removeProperty("border");
-          unhighlight();
           updateInfoCells();
           saveBanzuke();
         },
