@@ -111,6 +111,50 @@ var theSekitori = [
   "Ms14w Tokunomusashi 4-3",
   "Ms15e Wakaikari 4-3",
   "Ms15w Yoshii 3-4",
+  "Ms17e Miyagi 4-3",
+  "Ms18e Dewanoryu 5-2",
+  "Ms18w Daiseizan 4-3",
+  "Ms20e Daishomaru 6-1",
+  "Ms21e Kairyu 4-3",
+  "Ms22e Fujinoyama 4-3",
+  "Ms22w Nishinoryu 4-3",
+  "Ms23e Oyamatoumi 4-3",
+  "Ms23w Mineyaiba 4-3",
+  "Ms25w Mudoho 5-2",
+  "Ms26e Kazekeno 5-2",
+  "Ms26w Kotoyusho 5-2",
+  "Ms28e Osanai 4-3",
+  "Ms29e Kaisho 4-3",
+  "Ms29w Hananoumi 6-1",
+  "Ms30e Toshunryu 5-2",
+  "Ms30w Obara 4-3",
+  "Ms32e Asanowaka 4-3",
+  "Ms34e Chiyotora 5-2",
+  "Ms37e Hokaho 4-3",
+  "Ms37w Omoto 5-2",
+  "Ms38e Tendozan 6-1",
+  "Ms39e Tsurubayashi 4-3",
+  "Ms39w Taiga 4-3",
+  "Ms40w Daikisho 5-2",
+  "Ms41e Ryusei 4-3",
+  "Ms41w Haruyama 6-1",
+  "Ms43w Awanokuni 5-2",
+  "Ms45e Shohoryu 4-3",
+  "Ms46e Kazenoumi 5-2",
+  "Ms47e Yoshiyasu 4-3",
+  "Ms47w Asakoki 4-3",
+  "Ms48w Fujitoshi 5-2",
+  "Ms50w Kotoozutsu 4-3",
+  "Ms51e Amakaze 5-2",
+  "Ms53e Akinoyama 5-2",
+  "Ms53w Hinataryu 4-3",
+  "Ms54e Hoshuzan 4-3",
+  "Ms55e Sazanami 4-3",
+  "Ms56w Otani 5-2",
+  "Ms57e Anosho 4-3",
+  "Ms57w Kumanoryu 4-3",
+  "Ms60w Ohata 4-3",
+  "Sd26w Fujiseiun 7-0 Y",
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the
@@ -469,23 +513,10 @@ window.onload = function () {
 
           card.id = rikiData[0];
           card.className = "redips-drag se";
-          if (rikiData[0].startsWith("Ms"))
+          if (rikiData[0].startsWith("Ms") || rikiData[0].startsWith("Sd"))
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
           card.setAttribute("data-re", record);
-
-          /*
-          var holder = document.createElement('a');
-
-          holder.innerHTML = rikiData[1];
-          holder.href = "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
-          holder.target = "_blank";
-          if (rikiData[0].startsWith("Ms")) 
-            holder.className = "msLink";
-          //holder.setAttribute("onmouseover", 'showNextRank("' + rikiData[0] + '")');
-          //holder.setAttribute("onmouseout", "hideNextRank()");
-          holder.style.display = "none";
-          */
 
           rikiData[1] =
             '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
@@ -769,6 +800,8 @@ redips.init = function () {
         callback: function () {
           if (currentCell.dataset.r.charAt(0) == "J")
             document.getElementById("juRik").innerHTML--;
+          else if (currentCell.dataset.r.startsWith("Ms"))
+            document.getElementById("msRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
           //b1Cell[i].style.removeProperty("border");
@@ -790,6 +823,7 @@ redips.init = function () {
   rd.event.droppedBefore = function (targetCell) {
     var makuCounter = document.getElementById("makRik"),
       juCounter = document.getElementById("juRik"),
+      msCounter = document.getElementById("msRik"),
       thisCard = rd.obj,
       currentCell = rd.findParent("TD", thisCard),
       currentChgCell,
@@ -804,6 +838,7 @@ redips.init = function () {
     if (curCellIsOfBanzuke2) {
       currentCellRank = currentCell.dataset.r.charAt(0);
       if (currentCellRank == "J") juCounter.innerHTML--;
+      else if (currentCell.dataset.r.startsWith("Ms")) msCounter.innerHTML--;
       else makuCounter.innerHTML--;
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
@@ -812,13 +847,15 @@ redips.init = function () {
         thisCard.childNodes[thisCard.childNodes.length - 1].innerText;
       holder.href = thisCard.children[thisCard.childNodes.length - 1].href;
       holder.target = "_blank";
-      if (thisCard.id.startsWith("Ms")) holder.className = "msLink";
+      //if (thisCard.id.startsWith("Ms"))
+      //  holder.className = "msLink";
       currentCell.appendChild(holder);
     }
 
     if (tarCellIsOfBanzuke2) {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == "J") juCounter.innerHTML++;
+      else if (targetCell.dataset.r.startsWith("Ms")) msCounter.innerHTML++;
       else makuCounter.innerHTML++;
     } else targetCell.children[0].remove();
 
@@ -984,7 +1021,7 @@ function updateInfoCells() {
 
         thisChg = getChange(thisRank, targetCellRank);
 
-        if (thisRank.startsWith("Ms")) {
+        if (thisRank.startsWith("Ms") || thisRank.startsWith("Sd")) {
           if (thisRank.endsWith("TD")) thisRank = thisRank.slice(0, -2);
           thisChg =
             '<a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&form1_rank=' +
@@ -1098,6 +1135,7 @@ redips.resetBanzuke = function () {
 redips.arrange = function () {
   if (confirm("Confirm auto-arrange?") == true) {
     var rikishi = document.querySelectorAll(".se"),
+      msCounter = document.getElementById("msRik"),
       juCounter = document.getElementById("juRik"),
       makuCounter = document.getElementById("makRik");
 
@@ -1118,9 +1156,12 @@ redips.arrange = function () {
         } else {
           if (rikishi[i].parentNode.dataset.r.startsWith("J"))
             juCounter.innerHTML--;
+          else if (rikishi[i].parentNode.dataset.r.startsWith("Ms"))
+            msCounter.innerHTML--;
           else makuCounter.innerHTML--;
         }
         if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+        else if (rikishiRank.startsWith("Ms")) msCounter.innerHTML++;
         else makuCounter.innerHTML++;
         rd.moveObject({
           obj: rikishi[i],
