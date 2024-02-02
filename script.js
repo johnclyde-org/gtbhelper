@@ -1146,33 +1146,28 @@ redips.arrange = function () {
     for (var i = 0; i < rikishi.length; i++) {
       var rikishiRank = rikishi[i].id;
 
-      if (
-        !rikishiRank.startsWith("Ms") &&
-        rikishiRank != rikishi[i].parentNode.dataset.r
-      ) {
-        if (!rikishi[i].parentNode.classList.contains("b2")) {
-          var holder = document.createElement("a");
+      if (parseInt(rikishiRank.slice(2, 4)) > 15) break;
+      if (!rikishi[i].parentNode.classList.contains("b2")) {
+        var holder = document.createElement("a");
 
-          holder.innerHTML = rikishi[i].innerText;
-          holder.href = rikishi[i].children[0].href;
-          holder.target = "_blank";
-          rikishi[i].parentNode.appendChild(holder);
-        } else {
-          if (rikishi[i].parentNode.dataset.r.startsWith("J"))
-            juCounter.innerHTML--;
-          else if (rikishi[i].parentNode.dataset.r.startsWith("Ms"))
-            msCounter.innerHTML--;
-          else makuCounter.innerHTML--;
-        }
-        if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
-        else if (rikishiRank.startsWith("Ms")) msCounter.innerHTML++;
-        else makuCounter.innerHTML++;
-        rd.moveObject({
-          obj: rikishi[i],
-          target: document.querySelector('[data-r="' + rikishiRank + '"]'),
-        });
+        holder.innerHTML = rikishi[i].innerText;
+        holder.href = rikishi[i].children[0].href;
+        holder.target = "_blank";
+        rikishi[i].parentNode.appendChild(holder);
+      } else {
+        if (rikishi[i].parentNode.dataset.r.startsWith("J"))
+          juCounter.innerHTML--;
+        else if (rikishi[i].parentNode.dataset.r.startsWith("Ms"))
+          msCounter.innerHTML--;
+        else makuCounter.innerHTML--;
       }
-      //else break;
+      if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+      else if (rikishiRank.startsWith("Ms")) msCounter.innerHTML++;
+      else makuCounter.innerHTML++;
+      rd.moveObject({
+        obj: rikishi[i],
+        target: document.querySelector('[data-r="' + rikishiRank + '"]'),
+      });
     }
     updateInfoCells();
   }
