@@ -310,7 +310,6 @@ th {
 .new,
 .ch1,
 .ch2 {
-  line-height: 18px;
   padding: 0 3px;
 }
 
@@ -321,17 +320,25 @@ th {
 .cur span {
   border-radius: 3px 0 0 3px;
   border: 2px outset #82828280;
-  margin-right: -5px;
-  padding: 0 3px;
+  margin-right: -7px;
+  padding: 0 5px 0 3px;
   border-right: none;
+  float: right;
 }
 
 .rs2 a {
   border-radius: 0 3px 3px 0;
   border: 2px outset #82828280;
-  margin-left: -5px;
-  padding: 0 3px;
+  margin-left: -7px;
+  padding: 0 3px 0 5px;
   border-left: none;
+  float: left;
+}
+
+.ch2 a {
+  border: solid transparent;
+  display: inline-block;
+  border-width: 2px 0;
 }
 
 div[contenteditable="true"] {
