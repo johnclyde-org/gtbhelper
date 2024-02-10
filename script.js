@@ -575,10 +575,12 @@ function addMakushitaTable() {
   var container = document.querySelectorAll(".banzukeContainer")[1];
   var table1 = document.createElement("table");
   var table2 = document.createElement("table");
+  var table3 = document.createElement("table");
   var groups = [[], [], [], [], [], [], [], []];
 
   table1.className = "makushitaTable";
   table2.className = "makushitaTable";
+  table3.className = "makushitaTable";
   for (var i = 0; i < theSekitori.length; i++) {
     if (theSekitori[i].startsWith("Ms")) {
       var rikishiData = theSekitori[i].split(" ");
@@ -591,6 +593,7 @@ function addMakushitaTable() {
   }
   table1.appendChild(document.createElement("tbody"));
   table2.appendChild(document.createElement("tbody"));
+  table3.appendChild(document.createElement("tbody"));
   for (var i = 7; i >= 0; i--) {
     if (groups[i].length > 0) {
       var headerRow = document.createElement("tr");
@@ -600,7 +603,8 @@ function addMakushitaTable() {
       header.innerText = i + " wins";
       headerRow.appendChild(header);
       if (i > 4) table1.children[0].appendChild(headerRow);
-      else table2.children[0].appendChild(headerRow);
+      else if (i == 4) table2.children[0].appendChild(headerRow);
+      else table3.children[0].appendChild(headerRow);
       for (var j = 0; j < groups[i].length; j++) {
         var rikishiRow = document.createElement("tr");
         var rikishiCell = document.createElement("td");
@@ -615,12 +619,14 @@ function addMakushitaTable() {
         rikishiRow.appendChild(rikishiCell);
         rikishiRow.appendChild(document.createElement("td"));
         if (i > 4) table1.children[0].appendChild(rikishiRow);
-        else table2.children[0].appendChild(rikishiRow);
+        else if (i == 4) table2.children[0].appendChild(rikishiRow);
+        else table3.children[0].appendChild(rikishiRow);
       }
     }
   }
   container.appendChild(table1);
   container.appendChild(table2);
+  container.appendChild(table3);
 }
 
 function loadDraft() {
