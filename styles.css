@@ -173,25 +173,16 @@ button {
 
 #tableContainer {
   position: relative;
-  overflow: scroll;
-  overflow-y: hidden;
+  overflow-x: auto;
   left: 0;
   right: 0;
-  background: linear-gradient(
-    to right,
-    #00000069,
-    #00000017 20%,
-    #00000017 80%,
-    #00000069
-  );
-  border: 3px solid darkcyan;
-  border-width: 0 3px 3px 3px;
+  display: flex;
+  border-bottom: 1px solid #0000008a;
 }
 
 #tableLiner {
   background-color: transparent;
   border-spacing: 20px;
-  margin-left: 3vw;
 }
 
 .banzukeContainer {
@@ -205,7 +196,6 @@ table {
   font-size: 13px;
   border-spacing: 1px;
   background-color: white;
-  margin-right: 2%;
 }
 
 #banzuke1,
@@ -664,4 +654,41 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: default;
+}
+
+#shadowLeft {
+  flex: 1 0 2vw;
+  background: linear-gradient(90deg, #00000075, transparent);
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+#shadowRight {
+  flex: 1 0 2vw;
+  background: linear-gradient(270deg, #00000075, transparent);
+  position: sticky;
+  right: 0;
+  z-index: 1;
+}
+
+.makushitaTable {
+  border-collapse: collapse;
+  text-align: left;
+  display: inline-table;
+  margin-top: 10px;
+}
+
+.makushitaTable td {
+  font-size: 12px;
+  border: none;
+  padding: 0 5px;
+}
+
+.makushitaTable th {
+  border: none;
+  padding: 3px 5px;
+  background: #dcdcdc;
+  border: solid dimgray;
+  border-width: 0 1px 1px 0;
 }
