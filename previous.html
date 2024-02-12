@@ -1,139 +1,3159 @@
-<!DOCTYPE html>
-<html><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css" type="text/css">
-  <title>GTB Helper</title>
-<body>
-  <script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <title>GTB Helper</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        var sekitoriCards = document.getElementsByClassName("redips-drag se");
 
-    window.onload = function() {
-      var sekitoriCards = document.getElementsByClassName("redips-drag se");
+        for (var i = 0; i < sekitoriCards.length; i++) {
+          sekitoriCards[i].addEventListener("dblclick", function () {
+            window
+              .open(
+                "https://sumodb.sumogames.de/Rikishi.aspx?r=" +
+                  this.dataset.rid,
+                "_blank",
+              )
+              .focus();
+          });
+          sekitoriCards[i].addEventListener(
+            "mousedown",
+            function (event) {
+              if (event.detail > 1) {
+                event.preventDefault();
+              }
+            },
+            false,
+          );
+        }
+      };
+    </script>
+    <header>
+      <h1>
+        <span id="gtb">Guess the Banzuke </span>Helper Page <small>(NEW)</small>
+      </h1>
+      <div id="links">
+        <a href="index.html">Go back</a>
+        <a href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx" target="_blank"
+          >GTB Entry Form</a
+        >
+      </div>
+    </header>
+    <div id="redips-drag">
+      <div id="tableContainer">
+        <table id="tableLiner" class="mainTable">
+          <tbody>
+            <tr>
+              <td class="banzukeContainer">
+                <table id="banzuke1">
+                  <thead>
+                    <tr>
+                      <th class="tableTitle" colspan="5">Kyushu 2022</th>
+                    </tr>
+                    <tr class="theader">
+                      <th>East</th>
+                      <th>Rank</th>
+                      <th>West</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="san">
+                      <td
+                        class="redips-only Y1e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >Y1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11927"
+                            target="_blank"
+                            >Terunofuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11927&amp;b=202211"
+                            target="_blank"
+                            >0-0-15</a
+                          ></span
+                        >
+                      </td>
+                      <th>Y1</th>
+                      <td class="redips-only Y1w"></td>
+                    </tr>
+                    <tr class="san">
+                      <td
+                        class="redips-only O1e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >O1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12191"
+                            target="_blank"
+                            >Takakeisho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12191&amp;b=202211"
+                            target="_blank"
+                            >12-3 D</a
+                          ></span
+                        >
+                      </td>
+                      <th>O1</th>
+                      <td
+                        class="redips-only O1w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >O1w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12130"
+                            target="_blank"
+                            >Shodai</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12130&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td
+                        class="redips-only S1e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >S1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12370"
+                            target="_blank"
+                            >Wakatakakage</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12370&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                      <th>S1</th>
+                      <td
+                        class="redips-only S1w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >S1w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12451"
+                            target="_blank"
+                            >Hoshoryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12451&amp;b=202211"
+                            target="_blank"
+                            >11-4 G</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td class="redips-only S2e"></td>
+                      <th>S2</th>
+                      <td
+                        class="redips-only S2w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >S2w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12210"
+                            target="_blank"
+                            >Mitakeumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12210&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td
+                        class="redips-only K1e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >K1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=5944"
+                            target="_blank"
+                            >Tamawashi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=5944&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                      </td>
+                      <th>K1</th>
+                      <td
+                        class="redips-only K1w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >K1w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12231"
+                            target="_blank"
+                            >Kiribayama</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12231&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td
+                        class="redips-only K2e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >K2e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12203"
+                            target="_blank"
+                            >Tobizaru</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12203&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>K2</th>
+                      <td
+                        class="redips-only K2w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >K2w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11985"
+                            target="_blank"
+                            >Daieisho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11985&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
 
-      for (var i = 0; i < sekitoriCards.length; i++) {
-        sekitoriCards[i].addEventListener("dblclick", function() {
-          window.open("https://sumodb.sumogames.de/Rikishi.aspx?r=" + this.dataset.rid, "_blank").focus();
-        });
-        sekitoriCards[i].addEventListener("mousedown", function(event) {
-          if (event.detail > 1) {
-            event.preventDefault();
-          }
-        }, false);
-      }
-    }
+                    <tr>
+                      <td
+                        class="redips-only M1e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6480"
+                            target="_blank"
+                            >Takayasu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6480&amp;b=202211"
+                            target="_blank"
+                            >12-3 DS</a
+                          ></span
+                        >
+                      </td>
+                      <th>M1</th>
+                      <td
+                        class="redips-only M1w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M1w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12270"
+                            target="_blank"
+                            >Kotonowaka</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12270&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M2e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M2e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11946"
+                            target="_blank"
+                            >Meisei</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11946&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                      <th>M2</th>
+                      <td
+                        class="redips-only M2w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M2w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12107"
+                            target="_blank"
+                            >Ichinojo</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12107&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M3e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M3e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12226"
+                            target="_blank"
+                            >Ura</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12226&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                      </td>
+                      <th>M3</th>
+                      <td
+                        class="redips-only M3w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M3w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12352"
+                            target="_blank"
+                            >Midorifuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12352&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M4e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M4e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11980"
+                            target="_blank"
+                            >Wakamotoharu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11980&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                      </td>
+                      <th>M4</th>
+                      <td
+                        class="redips-only M4w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M4w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=2879"
+                            target="_blank"
+                            >Sadanoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=2879&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M5e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M5e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12239"
+                            target="_blank"
+                            >Hokutofuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12239&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>M5</th>
+                      <td
+                        class="redips-only M5w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M5w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12351"
+                            target="_blank"
+                            >Nishikifuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12351&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M6e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M6e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6596"
+                            target="_blank"
+                            >Nishikigi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6596&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                      <th>M6</th>
+                      <td
+                        class="redips-only M6w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M6w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6594"
+                            target="_blank"
+                            >Ryuden</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6594&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M7e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M7e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12055"
+                            target="_blank"
+                            >Endo</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12055&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                      </td>
+                      <th>M7</th>
+                      <td
+                        class="redips-only M7w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M7w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11784"
+                            target="_blank"
+                            >Myogiryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11784&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M8e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M8e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11728"
+                            target="_blank"
+                            >Takarafuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11728&amp;b=202211"
+                            target="_blank"
+                            >3-12</a
+                          ></span
+                        >
+                      </td>
+                      <th>M8</th>
+                      <td
+                        class="redips-only M8w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M8w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6599"
+                            target="_blank"
+                            >Tochinoshin</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6599&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M9e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M9e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11855"
+                            target="_blank"
+                            >Takanosho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11855&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>M9</th>
+                      <td
+                        class="redips-only M9w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M9w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12094"
+                            target="_blank"
+                            >Abi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12094&amp;b=202211"
+                            target="_blank"
+                            >12-3 YK</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M10e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M10e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11786"
+                            target="_blank"
+                            >Aoiyama</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11786&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>M10</th>
+                      <td
+                        class="redips-only M10w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M10w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11785"
+                            target="_blank"
+                            >Chiyoshoma</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11785&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M11e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M11e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12043"
+                            target="_blank"
+                            >Onosho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12043&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                      <th>M11</th>
+                      <td
+                        class="redips-only M11w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M11w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12449"
+                            target="_blank"
+                            >Kotoshoho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12449&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M12e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M12e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=7153"
+                            target="_blank"
+                            >Kotoeko</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7153&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>M12</th>
+                      <td class="redips-only M12w">
+                        <span style="display: none"
+                          >M12w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11934"
+                            target="_blank"
+                            >Chiyotairyu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11934&amp;b=202211"
+                            target="_blank"
+                            >2-6</a
+                          ></span
+                        >
+                        <div
+                          id="M12w"
+                          class="redips-nodrag"
+                          data-rid="11934"
+                          style="
+                            background-color: #ffe4b4;
+                            cursor: default;
+                            border-style: dotted;
+                          "
+                          title="Retired"
+                        >
+                          M12w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11934"
+                            target="_blank"
+                            >Chiyotairyu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11934&amp;b=202211"
+                            target="_blank"
+                            >2-6</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M13e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M13e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6463"
+                            target="_blank"
+                            >Okinoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6463&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                      <th>M13</th>
+                      <td
+                        class="redips-only M13w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M13w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12453"
+                            target="_blank"
+                            >Oho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12453&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M14e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M14e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12362"
+                            target="_blank"
+                            >Ichiyamamoto</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12362&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                      <th>M14</th>
+                      <td
+                        class="redips-only M14w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M14w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11723"
+                            target="_blank"
+                            >Azumaryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11723&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only M15e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M15e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11845"
+                            target="_blank"
+                            >Kagayaki</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11845&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                      <th>M15</th>
+                      <td class="redips-only M15w" style="">
+                        <span style="display: none"
+                          >M15w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12664"
+                            target="_blank"
+                            >Atamifuji</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12664&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                        <div
+                          id="M15w"
+                          class="redips-drag se"
+                          data-rid="12664"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M15w Atamifuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12664&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only M16e" style="">
+                        <span style="display: none"
+                          >M16e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11868"
+                            target="_blank"
+                            >Terutsuyoshi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11868&amp;b=202211"
+                            target="_blank"
+                            >0-15</a
+                          ></span
+                        >
+                        <div
+                          id="M16e"
+                          class="redips-drag se"
+                          data-rid="11868"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M16e Terutsuyoshi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11868&amp;b=202211"
+                            target="_blank"
+                            >0-15</a
+                          >
+                        </div>
+                      </td>
+                      <th>M16</th>
+                      <td
+                        class="redips-only M16w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >M16w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12314"
+                            target="_blank"
+                            >Hiradoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12314&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="divider" colspan="3"></th>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J1e">
+                        <span style="display: none"
+                          >J1e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12575"
+                            target="_blank"
+                            >Tohakuryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12575&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          ></span
+                        >
+                        <div
+                          id="J1e"
+                          class="redips-drag se"
+                          data-rid="12575"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J1e Tohakuryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12575&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          >
+                        </div>
+                      </td>
+                      <th>J1</th>
+                      <td
+                        class="redips-only J1w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >J1w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=7240"
+                            target="_blank"
+                            >Chiyomaru</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7240&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J2e">
+                        <span style="display: none"
+                          >J2e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12320"
+                            target="_blank"
+                            >Churanoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12320&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                        <div
+                          id="J2e"
+                          class="redips-drag se"
+                          data-rid="12320"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J2e Churanoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12320&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                      <th>J2</th>
+                      <td class="redips-only J2w">
+                        <span style="display: none"
+                          >J2w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12117"
+                            target="_blank"
+                            >Bushozan</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12117&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                        <div
+                          id="J2w"
+                          class="redips-drag se"
+                          data-rid="12117"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J2w Bushozan
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12117&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="redips-only J3e"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >J3e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12113"
+                            target="_blank"
+                            >Tsurugisho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12113&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                      </td>
+                      <th>J3</th>
+                      <td
+                        class="redips-only J3w"
+                        style="border: 1px dashed dimgray"
+                      >
+                        <span style="display: block"
+                          >J3w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12406"
+                            target="_blank"
+                            >Mitoryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12406&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J4e">
+                        <span style="display: none"
+                          >J4e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12026"
+                            target="_blank"
+                            >Hidenoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12026&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                        <div
+                          id="J4e"
+                          class="redips-drag se"
+                          data-rid="12026"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J4e Hidenoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12026&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                      <th>J4</th>
+                      <td class="redips-only J4w">
+                        <span style="display: none"
+                          >J4w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12292"
+                            target="_blank"
+                            >Yutakayama</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12292&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          ></span
+                        >
+                        <div
+                          id="J4w"
+                          class="redips-nodrag"
+                          data-rid="12292"
+                          style="
+                            background-color: #ffe4b4;
+                            cursor: default;
+                            border-style: dotted;
+                          "
+                          title="Retired"
+                        >
+                          J4w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12292"
+                            target="_blank"
+                            >Yutakayama</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12292&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J5e">
+                        <span style="display: none"
+                          >J5e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11918"
+                            target="_blank"
+                            >Akua</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11918&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                        <div
+                          id="J5e"
+                          class="redips-drag se"
+                          data-rid="11918"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J5e Akua
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11918&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <th>J5</th>
+                      <td class="redips-only J5w" style="">
+                        <span style="display: none"
+                          >J5w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=6642"
+                            target="_blank"
+                            >Chiyonokuni</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6642&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                        <div
+                          id="J5w"
+                          class="redips-drag se"
+                          data-rid="6642"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J5w Chiyonokuni
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6642&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J6e">
+                        <span style="display: none"
+                          >J6e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12646"
+                            target="_blank"
+                            >Hokuseiho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12646&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                        <div
+                          id="J6e"
+                          class="redips-drag se"
+                          data-rid="12646"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J6e Hokuseiho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12646&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <th>J6</th>
+                      <td class="redips-only J6w">
+                        <span style="display: none"
+                          >J6w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12548"
+                            target="_blank"
+                            >Kitanowaka</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12548&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          ></span
+                        >
+                        <div
+                          id="J6w"
+                          class="redips-drag se"
+                          data-rid="12548"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J6w Kitanowaka
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12548&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J7e">
+                        <span style="display: none"
+                          >J7e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12674"
+                            target="_blank"
+                            >Tochimusashi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12674&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                        <div
+                          id="J7e"
+                          class="redips-drag se"
+                          data-rid="12674"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J7e Tochimusashi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12674&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>J7</th>
+                      <td class="redips-only J7w">
+                        <span style="display: none"
+                          >J7w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12721"
+                            target="_blank"
+                            >Kinbozan</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12721&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                        <div
+                          id="J7w"
+                          class="redips-drag se"
+                          data-rid="12721"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J7w Kinbozan
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12721&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J8e">
+                        <span style="display: none"
+                          >J8e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12024"
+                            target="_blank"
+                            >Shimanoumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12024&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                        <div
+                          id="J8e"
+                          class="redips-drag se"
+                          data-rid="12024"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J8e Shimanoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12024&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>J8</th>
+                      <td class="redips-only J8w">
+                        <span style="display: none"
+                          >J8w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11809"
+                            target="_blank"
+                            >Kotokuzan</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11809&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                        <div
+                          id="J8w"
+                          class="redips-drag se"
+                          data-rid="11809"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J8w Kotokuzan
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11809&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J9e">
+                        <span style="display: none"
+                          >J9e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12273"
+                            target="_blank"
+                            >Daiamami</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12273&amp;b=202211"
+                            target="_blank"
+                            >11-4 D</a
+                          ></span
+                        >
+                        <div
+                          id="J9e"
+                          class="redips-drag se"
+                          data-rid="12273"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J9e Daiamami
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12273&amp;b=202211"
+                            target="_blank"
+                            >11-4 D</a
+                          >
+                        </div>
+                      </td>
+                      <th>J9</th>
+                      <td class="redips-only J9w">
+                        <span style="display: none"
+                          >J9w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12040"
+                            target="_blank"
+                            >Daishoho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12040&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                        <div
+                          id="J9w"
+                          class="redips-drag se"
+                          data-rid="12040"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J9w Daishoho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12040&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J10e">
+                        <span style="display: none"
+                          >J10e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11736"
+                            target="_blank"
+                            >Chiyosakae</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11736&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                        <div
+                          id="J10e"
+                          class="redips-drag se"
+                          data-rid="11736"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J10e Chiyosakae
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11736&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>J10</th>
+                      <td class="redips-only J10w">
+                        <span style="display: none"
+                          >J10w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12075"
+                            target="_blank"
+                            >Kaisho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12075&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          ></span
+                        >
+                        <div
+                          id="J10w"
+                          class="redips-drag se"
+                          data-rid="12075"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J10w Kaisho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12075&amp;b=202211"
+                            target="_blank"
+                            >5-10</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J11e">
+                        <span style="display: none"
+                          >J11e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12412"
+                            target="_blank"
+                            >Enho</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12412&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          ></span
+                        >
+                        <div
+                          id="J11e"
+                          class="redips-drag se"
+                          data-rid="12412"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J11e Enho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12412&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <th>J11</th>
+                      <td class="redips-only J11w">
+                        <span style="display: none"
+                          >J11w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12114"
+                            target="_blank"
+                            >Takakento</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12114&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                        <div
+                          id="J11w"
+                          class="redips-drag se"
+                          data-rid="12114"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J11w Takakento
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12114&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J12e">
+                        <span style="display: none"
+                          >J12e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=11726"
+                            target="_blank"
+                            >Tokushoryu</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11726&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          ></span
+                        >
+                        <div
+                          id="J12e"
+                          class="redips-drag se"
+                          data-rid="11726"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J12e Tokushoryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11726&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                      <th>J12</th>
+                      <td class="redips-only J12w">
+                        <span style="display: none"
+                          >J12w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12717"
+                            target="_blank"
+                            >Oshoma</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12717&amp;b=202211"
+                            target="_blank"
+                            >11-4 Y</a
+                          ></span
+                        >
+                        <div
+                          id="J12w"
+                          class="redips-drag se"
+                          data-rid="12717"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J12w Oshoma
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12717&amp;b=202211"
+                            target="_blank"
+                            >11-4 Y</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J13e">
+                        <span style="display: none"
+                          >J13e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12013"
+                            target="_blank"
+                            >Shimazuumi</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12013&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          ></span
+                        >
+                        <div
+                          id="J13e"
+                          class="redips-drag se"
+                          data-rid="12013"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J13e Shimazuumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12013&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <th>J13</th>
+                      <td class="redips-only J13w">
+                        <span style="display: none"
+                          >J13w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12516"
+                            target="_blank"
+                            >Roga</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12516&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                        <div
+                          id="J13w"
+                          class="redips-drag se"
+                          data-rid="12516"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J13w Roga
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12516&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="redips-only J14e">
+                        <span style="display: none"
+                          >J14e
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12342"
+                            target="_blank"
+                            >Tsushimanada</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12342&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          ></span
+                        >
+                        <div
+                          id="J14e"
+                          class="redips-drag se"
+                          data-rid="12342"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J14e Tsushimanada
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12342&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>J14</th>
+                      <td class="redips-only J14w" style="">
+                        <span style="display: none"
+                          >J14w
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi.aspx?r=12688"
+                            target="_blank"
+                            >Gonoyama</a
+                          >
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12688&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          ></span
+                        >
+                        <div
+                          id="J14w"
+                          class="redips-drag se"
+                          data-rid="12688"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J14w Gonoyama
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12688&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td class="banzukeContainer">
+                <table id="banzuke2" class="mainTable">
+                  <thead>
+                    <tr>
+                      <th class="tableTitle" colspan="5">
+                        Hatsu 2023 <s>Guess</s> -
+                        <span id="makRik">42</span> rikishi placed
+                      </th>
+                    </tr>
+                    <tr class="theader">
+                      <th class="chHead">Chg.</th>
+                      <th>East</th>
+                      <th>Rank</th>
+                      <th>West</th>
+                      <th class="chHead">Chg.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="san">
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=Y1e&amp;form1_wins=0&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=Y1e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="Y1e"
+                          class="redips-drag se"
+                          data-rid="11927"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          Y1e Terunofuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11927&amp;b=202211"
+                            target="_blank"
+                            >0-0-15</a
+                          >
+                        </div>
+                      </td>
+                      <th>Y1</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch"></td>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <th>Y2</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch"></td>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <th>O1</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="O1e"
+                          class="redips-drag se"
+                          data-rid="12191"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          O1e Takakeisho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12191&amp;b=202211"
+                            target="_blank"
+                            >12-3 D</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=O1e&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=O1w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-0.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch"></td>
+                      <td class="redips-only b2" style=""></td>
+                      <th>O2</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch"></td>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <th>O3</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S1e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S1e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="S1e"
+                          class="redips-drag se"
+                          data-rid="12370"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          S1e Wakatakakage
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12370&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <th>S1</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="S1w"
+                          class="redips-drag se"
+                          data-rid="12451"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          S1w Hoshoryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12451&amp;b=202211"
+                            target="_blank"
+                            >11-4 G</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S1w&amp;form1_wins=11&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S1w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M1e&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S2e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M1e"
+                          class="redips-drag se"
+                          data-rid="6480"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M1e Takayasu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6480&amp;b=202211"
+                            target="_blank"
+                            >12-3 DS</a
+                          >
+                        </div>
+                      </td>
+                      <th>S2</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="O1w"
+                          class="redips-drag se"
+                          data-rid="12130"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          O1w Shodai
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12130&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=O1w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S2w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↓ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K1w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K1e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+0.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="K1w"
+                          class="redips-drag se"
+                          data-rid="12231"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          K1w Kiribayama
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12231&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <th>K1</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M1w"
+                          class="redips-drag se"
+                          data-rid="12270"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M1w Kotonowaka
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12270&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M1w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K1w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="san">
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M2e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K2e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M2e"
+                          class="redips-drag se"
+                          data-rid="11946"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M2e Meisei
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11946&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <th>K2</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M4e"
+                          class="redips-drag se"
+                          data-rid="11980"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M4e Wakamotoharu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11980&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M4e&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K2w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                    </tr>
 
-  </script>
-  <header>
-    <h1><span id="gtb">Guess the Banzuke </span>Helper Page <small>(NEW)</small></h1>
-    <div id="links">
-      <a href="index.html">Go back</a>
-      <a href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx" target="_blank">GTB Entry Form</a>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K2e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M1e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↓ </a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="K2e"
+                          class="redips-drag se"
+                          data-rid="12203"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          K2e Tobizaru
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12203&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M1</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="K2w"
+                          class="redips-drag se"
+                          data-rid="11985"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          K2w Daieisho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11985&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K2w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M1w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↓ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S2w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M2e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↓ </a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="S2w"
+                          class="redips-drag se"
+                          data-rid="12210"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          S2w Mitakeumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12210&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                      <th>M2</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="K1e"
+                          class="redips-drag se"
+                          data-rid="5944"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          K1e Tamawashi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=5944&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K1e&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M2w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↓ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M9w&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M3e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+6.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M9w"
+                          class="redips-drag se"
+                          data-rid="12094"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M9w Abi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12094&amp;b=202211"
+                            target="_blank"
+                            >12-3 YK</a
+                          >
+                        </div>
+                      </td>
+                      <th>M3</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M3w"
+                          class="redips-drag se"
+                          data-rid="12352"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M3w Midorifuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12352&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M3w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M3w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M5w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M4e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+1.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M5w"
+                          class="redips-drag se"
+                          data-rid="12351"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M5w Nishikifuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12351&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <th>M4</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M4w"
+                          class="redips-drag se"
+                          data-rid="2879"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M4w Sadanoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=2879&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M4w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M4w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M6w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M5e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+1.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M6w"
+                          class="redips-drag se"
+                          data-rid="6594"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M6w Ryuden
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6594&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <th>M5</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M6e"
+                          class="redips-drag se"
+                          data-rid="6596"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M6e Nishikigi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6596&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M6e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M5w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+0.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M5e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M6e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-1</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M5e"
+                          class="redips-drag se"
+                          data-rid="12239"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M5e Hokutofuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12239&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M6</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M7w"
+                          class="redips-drag se"
+                          data-rid="11784"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M7w Myogiryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11784&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M7w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M6w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+1</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M2w&amp;form1_wins=4&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M7e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-4.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M2w"
+                          class="redips-drag se"
+                          data-rid="12107"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M2w Ichinojo
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12107&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                      <th>M7</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M3e"
+                          class="redips-drag se"
+                          data-rid="12226"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M3e Ura
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12226&amp;b=202211"
+                            target="_blank"
+                            >4-11</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M3e&amp;form1_wins=4&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M7w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-4.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M11e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M8e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+3</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M11e"
+                          class="redips-drag se"
+                          data-rid="12043"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M11e Onosho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12043&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <th>M8</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M13w"
+                          class="redips-drag se"
+                          data-rid="12453"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M13w Oho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12453&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M13w&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M8w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M9e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M9e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M9e"
+                          class="redips-drag se"
+                          data-rid="11855"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M9e Takanosho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11855&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M9</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M7e"
+                          class="redips-drag se"
+                          data-rid="12055"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M7e Endo
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12055&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M7e&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M9w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-2.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M10e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M10e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M10e"
+                          class="redips-drag se"
+                          data-rid="11786"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M10e Aoiyama
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11786&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M10</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M16w"
+                          class="redips-drag se"
+                          data-rid="12314"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M16w Hiradoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12314&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M16w&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M10w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+6</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M10w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M11e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-0.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M10w"
+                          class="redips-drag se"
+                          data-rid="11785"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M10w Chiyoshoma
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11785&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M11</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M8w"
+                          class="redips-drag se"
+                          data-rid="6599"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M8w Tochinoshin
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6599&amp;b=202211"
+                            target="_blank"
+                            >6-9</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M8w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M11w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-3</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M15e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M12e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+3</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M15e"
+                          class="redips-drag se"
+                          data-rid="11845"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M15e Kagayaki
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11845&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <th>M12</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M13e"
+                          class="redips-drag se"
+                          data-rid="6463"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M13e Okinoumi
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6463&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M13e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M12w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >+0.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M11w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M13e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-1.5</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M11w"
+                          class="redips-drag se"
+                          data-rid="12449"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M11w Kotoshoho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12449&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M13</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M12e"
+                          class="redips-drag se"
+                          data-rid="7153"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M12e Kotoeko
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7153&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M12e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M13w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-1.5</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M14e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M14e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M14e"
+                          class="redips-drag se"
+                          data-rid="12362"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M14e Ichiyamamoto
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12362&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <th>M14</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M14w"
+                          class="redips-drag se"
+                          data-rid="11723"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M14w Azumaryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11723&amp;b=202211"
+                            target="_blank"
+                            >7-8</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M14w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M14w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >─</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J3e&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M15e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="J3e"
+                          class="redips-drag se"
+                          data-rid="12113"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J3e Tsurugisho
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12113&amp;b=202211"
+                            target="_blank"
+                            >10-5</a
+                          >
+                        </div>
+                      </td>
+                      <th>M15</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="J3w"
+                          class="redips-drag se"
+                          data-rid="12406"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J3w Mitoryu
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12406&amp;b=202211"
+                            target="_blank"
+                            >9-6</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J3w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M15w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M8e&amp;form1_wins=3&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M16e"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          >-8</a
+                        >
+                      </td>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="M8e"
+                          class="redips-drag se"
+                          data-rid="11728"
+                          style="
+                            background-color: #ffd4d4;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          M8e Takarafuji
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11728&amp;b=202211"
+                            target="_blank"
+                            >3-12</a
+                          >
+                        </div>
+                      </td>
+                      <th>M16</th>
+                      <td class="redips-only b2" style="border: medium none">
+                        <div
+                          id="J1w"
+                          class="redips-drag se"
+                          data-rid="7240"
+                          style="
+                            background-color: #c5ffc5;
+                            border-style: solid;
+                            cursor: default;
+                          "
+                        >
+                          J1w Chiyomaru
+                          <a
+                            href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7240&amp;b=202211"
+                            target="_blank"
+                            >8-7</a
+                          >
+                        </div>
+                      </td>
+                      <td class="ch">
+                        <a
+                          href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J1w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M16w"
+                          target="_blank"
+                          title="Click to run a SumoDB query"
+                          > ↑ </a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ch"></td>
+                      <td class="redips-only b2" style=""></td>
+                      <th>M17</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr>
+                      <td class="ch"></td>
+                      <td class="redips-only b2" style=""></td>
+                      <th>M18</th>
+                      <td class="redips-only b2" style=""></td>
+                      <td class="ch"></td>
+                    </tr>
+                    <tr>
+                      <th class="divider" colspan="5"></th>
+                    </tr>
+                    <tr>
+                      <td class="ch"></td>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <th>J</th>
+                      <td
+                        class="redips-only b2"
+                        style="border: 1px dashed dimgray"
+                      ></td>
+                      <td class="ch"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="redips_clone" style="height: 1px; width: 1px"></div>
     </div>
-  </header>
-  <div id="redips-drag">
-    <div id="tableContainer">
-      <table id="tableLiner" class="mainTable">
-        <tbody><tr><td class="banzukeContainer">
-          <table id="banzuke1">
-            <thead>
-              <tr>
-                <th class="tableTitle" colspan="5">Kyushu 2022</th>
-              </tr>
-              <tr class="theader">
-                <th>East</th><th>Rank</th><th>West</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="san"><td class="redips-only Y1e" style="border: 1px dashed dimgray;"><span style="display: block;">Y1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11927" target="_blank">Terunofuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11927&amp;b=202211" target="_blank">0-0-15</a></span></td><th>Y1</th><td class="redips-only Y1w"></td></tr>
-              <tr class="san"><td class="redips-only O1e" style="border: 1px dashed dimgray;"><span style="display: block;">O1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12191" target="_blank">Takakeisho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12191&amp;b=202211" target="_blank">12-3 D</a></span></td><th>O1</th><td class="redips-only O1w" style="border: 1px dashed dimgray;"><span style="display: block;">O1w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12130" target="_blank">Shodai</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12130&amp;b=202211" target="_blank">6-9</a></span></td></tr>
-              <tr class="san"><td class="redips-only S1e" style="border: 1px dashed dimgray;"><span style="display: block;">S1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12370" target="_blank">Wakatakakage</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12370&amp;b=202211" target="_blank">8-7</a></span></td><th>S1</th><td class="redips-only S1w" style="border: 1px dashed dimgray;"><span style="display: block;">S1w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12451" target="_blank">Hoshoryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12451&amp;b=202211" target="_blank">11-4 G</a></span></td></tr>
-              <tr class="san"><td class="redips-only S2e"></td><th>S2</th><td class="redips-only S2w" style="border: 1px dashed dimgray;"><span style="display: block;">S2w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12210" target="_blank">Mitakeumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12210&amp;b=202211" target="_blank">6-9</a></span></td></tr>
-              <tr class="san"><td class="redips-only K1e" style="border: 1px dashed dimgray;"><span style="display: block;">K1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=5944" target="_blank">Tamawashi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=5944&amp;b=202211" target="_blank">6-9</a></span></td><th>K1</th><td class="redips-only K1w" style="border: 1px dashed dimgray;"><span style="display: block;">K1w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12231" target="_blank">Kiribayama</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12231&amp;b=202211" target="_blank">8-7</a></span></td></tr>
-              <tr class="san"><td class="redips-only K2e" style="border: 1px dashed dimgray;"><span style="display: block;">K2e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12203" target="_blank">Tobizaru</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12203&amp;b=202211" target="_blank">7-8</a></span></td><th>K2</th><td class="redips-only K2w" style="border: 1px dashed dimgray;"><span style="display: block;">K2w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11985" target="_blank">Daieisho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11985&amp;b=202211" target="_blank">7-8</a></span></td></tr>
-
-              <tr><td class="redips-only M1e" style="border: 1px dashed dimgray;"><span style="display: block;">M1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6480" target="_blank">Takayasu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6480&amp;b=202211" target="_blank">12-3 DS</a></span></td><th>M1</th><td class="redips-only M1w" style="border: 1px dashed dimgray;"><span style="display: block;">M1w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12270" target="_blank">Kotonowaka</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12270&amp;b=202211" target="_blank">9-6</a></span></td></tr>
-              <tr><td class="redips-only M2e" style="border: 1px dashed dimgray;"><span style="display: block;">M2e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11946" target="_blank">Meisei</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11946&amp;b=202211" target="_blank">9-6</a></span></td><th>M2</th><td class="redips-only M2w" style="border: 1px dashed dimgray;"><span style="display: block;">M2w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12107" target="_blank">Ichinojo</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12107&amp;b=202211" target="_blank">4-11</a></span></td></tr>
-              <tr><td class="redips-only M3e" style="border: 1px dashed dimgray;"><span style="display: block;">M3e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12226" target="_blank">Ura</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12226&amp;b=202211" target="_blank">4-11</a></span></td><th>M3</th><td class="redips-only M3w" style="border: 1px dashed dimgray;"><span style="display: block;">M3w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12352" target="_blank">Midorifuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12352&amp;b=202211" target="_blank">8-7</a></span></td></tr>
-              <tr><td class="redips-only M4e" style="border: 1px dashed dimgray;"><span style="display: block;">M4e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11980" target="_blank">Wakamotoharu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11980&amp;b=202211" target="_blank">10-5</a></span></td><th>M4</th><td class="redips-only M4w" style="border: 1px dashed dimgray;"><span style="display: block;">M4w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=2879" target="_blank">Sadanoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=2879&amp;b=202211" target="_blank">8-7</a></span></td></tr>
-              <tr><td class="redips-only M5e" style="border: 1px dashed dimgray;"><span style="display: block;">M5e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12239" target="_blank">Hokutofuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12239&amp;b=202211" target="_blank">7-8</a></span></td><th>M5</th><td class="redips-only M5w" style="border: 1px dashed dimgray;"><span style="display: block;">M5w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12351" target="_blank">Nishikifuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12351&amp;b=202211" target="_blank">9-6</a></span></td></tr>
-              <tr><td class="redips-only M6e" style="border: 1px dashed dimgray;"><span style="display: block;">M6e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6596" target="_blank">Nishikigi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6596&amp;b=202211" target="_blank">8-7</a></span></td><th>M6</th><td class="redips-only M6w" style="border: 1px dashed dimgray;"><span style="display: block;">M6w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6594" target="_blank">Ryuden</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6594&amp;b=202211" target="_blank">9-6</a></span></td></tr>
-              <tr><td class="redips-only M7e" style="border: 1px dashed dimgray;"><span style="display: block;">M7e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12055" target="_blank">Endo</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12055&amp;b=202211" target="_blank">6-9</a></span></td><th>M7</th><td class="redips-only M7w" style="border: 1px dashed dimgray;"><span style="display: block;">M7w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11784" target="_blank">Myogiryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11784&amp;b=202211" target="_blank">8-7</a></span></td></tr>
-              <tr><td class="redips-only M8e" style="border: 1px dashed dimgray;"><span style="display: block;">M8e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11728" target="_blank">Takarafuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11728&amp;b=202211" target="_blank">3-12</a></span></td><th>M8</th><td class="redips-only M8w" style="border: 1px dashed dimgray;"><span style="display: block;">M8w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6599" target="_blank">Tochinoshin</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6599&amp;b=202211" target="_blank">6-9</a></span></td></tr>
-              <tr><td class="redips-only M9e" style="border: 1px dashed dimgray;"><span style="display: block;">M9e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11855" target="_blank">Takanosho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11855&amp;b=202211" target="_blank">7-8</a></span></td><th>M9</th><td class="redips-only M9w" style="border: 1px dashed dimgray;"><span style="display: block;">M9w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12094" target="_blank">Abi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12094&amp;b=202211" target="_blank">12-3 YK</a></span></td></tr>
-              <tr><td class="redips-only M10e" style="border: 1px dashed dimgray;"><span style="display: block;">M10e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11786" target="_blank">Aoiyama</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11786&amp;b=202211" target="_blank">7-8</a></span></td><th>M10</th><td class="redips-only M10w" style="border: 1px dashed dimgray;"><span style="display: block;">M10w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11785" target="_blank">Chiyoshoma</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11785&amp;b=202211" target="_blank">7-8</a></span></td></tr>
-              <tr><td class="redips-only M11e" style="border: 1px dashed dimgray;"><span style="display: block;">M11e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12043" target="_blank">Onosho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12043&amp;b=202211" target="_blank">9-6</a></span></td><th>M11</th><td class="redips-only M11w" style="border: 1px dashed dimgray;"><span style="display: block;">M11w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12449" target="_blank">Kotoshoho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12449&amp;b=202211" target="_blank">7-8</a></span></td></tr>
-              <tr><td class="redips-only M12e" style="border: 1px dashed dimgray;"><span style="display: block;">M12e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=7153" target="_blank">Kotoeko</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7153&amp;b=202211" target="_blank">7-8</a></span></td><th>M12</th><td class="redips-only M12w"><span style="display: none;">M12w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11934" target="_blank">Chiyotairyu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11934&amp;b=202211" target="_blank">2-6</a></span><div id="M12w" class="redips-nodrag" data-rid="11934" style="background-color: #ffe4b4; cursor: default; border-style: dotted;" title="Retired">M12w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11934" target="_blank">Chiyotairyu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11934&amp;b=202211" target="_blank">2-6</a></div></td></tr>
-              <tr><td class="redips-only M13e" style="border: 1px dashed dimgray;"><span style="display: block;">M13e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6463" target="_blank">Okinoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6463&amp;b=202211" target="_blank">8-7</a></span></td><th>M13</th><td class="redips-only M13w" style="border: 1px dashed dimgray;"><span style="display: block;">M13w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12453" target="_blank">Oho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12453&amp;b=202211" target="_blank">10-5</a></span></td></tr>
-              <tr><td class="redips-only M14e" style="border: 1px dashed dimgray;"><span style="display: block;">M14e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12362" target="_blank">Ichiyamamoto</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12362&amp;b=202211" target="_blank">7-8</a></span></td><th>M14</th><td class="redips-only M14w" style="border: 1px dashed dimgray;"><span style="display: block;">M14w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11723" target="_blank">Azumaryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11723&amp;b=202211" target="_blank">7-8</a></span></td></tr>
-              <tr><td class="redips-only M15e" style="border: 1px dashed dimgray;"><span style="display: block;">M15e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11845" target="_blank">Kagayaki</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11845&amp;b=202211" target="_blank">9-6</a></span></td><th>M15</th><td class="redips-only M15w" style=""><span style="display: none;">M15w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12664" target="_blank">Atamifuji</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12664&amp;b=202211" target="_blank">4-11</a></span><div id="M15w" class="redips-drag se" data-rid="12664" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M15w Atamifuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12664&amp;b=202211" target="_blank">4-11</a></div></td></tr>
-              <tr><td class="redips-only M16e" style=""><span style="display: none;">M16e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11868" target="_blank">Terutsuyoshi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11868&amp;b=202211" target="_blank">0-15</a></span><div id="M16e" class="redips-drag se" data-rid="11868" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M16e Terutsuyoshi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11868&amp;b=202211" target="_blank">0-15</a></div></td><th>M16</th><td class="redips-only M16w" style="border: 1px dashed dimgray;"><span style="display: block;">M16w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12314" target="_blank">Hiradoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12314&amp;b=202211" target="_blank">10-5</a></span></td></tr>
-              <tr><th class="divider" colspan="3"></th></tr>
-              <tr><td class="redips-only J1e"><span style="display: none;">J1e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12575" target="_blank">Tohakuryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12575&amp;b=202211" target="_blank">5-10</a></span><div id="J1e" class="redips-drag se" data-rid="12575" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J1e Tohakuryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12575&amp;b=202211" target="_blank">5-10</a></div></td><th>J1</th><td class="redips-only J1w" style="border: 1px dashed dimgray;"><span style="display: block;">J1w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=7240" target="_blank">Chiyomaru</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7240&amp;b=202211" target="_blank">8-7</a></span></td></tr>
-              <tr><td class="redips-only J2e"><span style="display: none;">J2e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12320" target="_blank">Churanoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12320&amp;b=202211" target="_blank">4-11</a></span><div id="J2e" class="redips-drag se" data-rid="12320" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J2e Churanoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12320&amp;b=202211" target="_blank">4-11</a></div></td><th>J2</th><td class="redips-only J2w"><span style="display: none;">J2w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12117" target="_blank">Bushozan</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12117&amp;b=202211" target="_blank">8-7</a></span><div id="J2w" class="redips-drag se" data-rid="12117" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J2w Bushozan <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12117&amp;b=202211" target="_blank">8-7</a></div></td></tr>
-              <tr><td class="redips-only J3e" style="border: 1px dashed dimgray;"><span style="display: block;">J3e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12113" target="_blank">Tsurugisho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12113&amp;b=202211" target="_blank">10-5</a></span></td><th>J3</th><td class="redips-only J3w" style="border: 1px dashed dimgray;"><span style="display: block;">J3w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12406" target="_blank">Mitoryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12406&amp;b=202211" target="_blank">9-6</a></span></td></tr>
-              <tr><td class="redips-only J4e"><span style="display: none;">J4e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12026" target="_blank">Hidenoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12026&amp;b=202211" target="_blank">4-11</a></span><div id="J4e" class="redips-drag se" data-rid="12026" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J4e Hidenoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12026&amp;b=202211" target="_blank">4-11</a></div></td><th>J4</th><td class="redips-only J4w"><span style="display: none;">J4w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12292" target="_blank">Yutakayama</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12292&amp;b=202211" target="_blank">5-10</a></span><div id="J4w" class="redips-nodrag" data-rid="12292" style="background-color: #ffe4b4; cursor: default; border-style: dotted;" title="Retired">J4w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12292" target="_blank">Yutakayama</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12292&amp;b=202211" target="_blank">5-10</a></div></td></tr>
-              <tr><td class="redips-only J5e"><span style="display: none;">J5e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11918" target="_blank">Akua</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11918&amp;b=202211" target="_blank">10-5</a></span><div id="J5e" class="redips-drag se" data-rid="11918" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J5e Akua <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11918&amp;b=202211" target="_blank">10-5</a></div></td><th>J5</th><td class="redips-only J5w" style=""><span style="display: none;">J5w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=6642" target="_blank">Chiyonokuni</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6642&amp;b=202211" target="_blank">6-9</a></span><div id="J5w" class="redips-drag se" data-rid="6642" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J5w Chiyonokuni <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6642&amp;b=202211" target="_blank">6-9</a></div></td></tr>
-              <tr><td class="redips-only J6e"><span style="display: none;">J6e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12646" target="_blank">Hokuseiho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12646&amp;b=202211" target="_blank">10-5</a></span><div id="J6e" class="redips-drag se" data-rid="12646" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J6e Hokuseiho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12646&amp;b=202211" target="_blank">10-5</a></div></td><th>J6</th><td class="redips-only J6w"><span style="display: none;">J6w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12548" target="_blank">Kitanowaka</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12548&amp;b=202211" target="_blank">6-9</a></span><div id="J6w" class="redips-drag se" data-rid="12548" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J6w Kitanowaka <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12548&amp;b=202211" target="_blank">6-9</a></div></td></tr>
-              <tr><td class="redips-only J7e"><span style="display: none;">J7e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12674" target="_blank">Tochimusashi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12674&amp;b=202211" target="_blank">7-8</a></span><div id="J7e" class="redips-drag se" data-rid="12674" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J7e Tochimusashi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12674&amp;b=202211" target="_blank">7-8</a></div></td><th>J7</th><td class="redips-only J7w"><span style="display: none;">J7w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12721" target="_blank">Kinbozan</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12721&amp;b=202211" target="_blank">8-7</a></span><div id="J7w" class="redips-drag se" data-rid="12721" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J7w Kinbozan <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12721&amp;b=202211" target="_blank">8-7</a></div></td></tr>
-              <tr><td class="redips-only J8e"><span style="display: none;">J8e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12024" target="_blank">Shimanoumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12024&amp;b=202211" target="_blank">7-8</a></span><div id="J8e" class="redips-drag se" data-rid="12024" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J8e Shimanoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12024&amp;b=202211" target="_blank">7-8</a></div></td><th>J8</th><td class="redips-only J8w"><span style="display: none;">J8w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11809" target="_blank">Kotokuzan</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11809&amp;b=202211" target="_blank">8-7</a></span><div id="J8w" class="redips-drag se" data-rid="11809" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J8w Kotokuzan <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11809&amp;b=202211" target="_blank">8-7</a></div></td></tr>
-              <tr><td class="redips-only J9e"><span style="display: none;">J9e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12273" target="_blank">Daiamami</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12273&amp;b=202211" target="_blank">11-4 D</a></span><div id="J9e" class="redips-drag se" data-rid="12273" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J9e Daiamami <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12273&amp;b=202211" target="_blank">11-4 D</a></div></td><th>J9</th><td class="redips-only J9w"><span style="display: none;">J9w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12040" target="_blank">Daishoho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12040&amp;b=202211" target="_blank">8-7</a></span><div id="J9w" class="redips-drag se" data-rid="12040" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J9w Daishoho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12040&amp;b=202211" target="_blank">8-7</a></div></td></tr>
-              <tr><td class="redips-only J10e"><span style="display: none;">J10e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11736" target="_blank">Chiyosakae</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11736&amp;b=202211" target="_blank">7-8</a></span><div id="J10e" class="redips-drag se" data-rid="11736" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J10e Chiyosakae <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11736&amp;b=202211" target="_blank">7-8</a></div></td><th>J10</th><td class="redips-only J10w"><span style="display: none;">J10w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12075" target="_blank">Kaisho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12075&amp;b=202211" target="_blank">5-10</a></span><div id="J10w" class="redips-drag se" data-rid="12075" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J10w Kaisho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12075&amp;b=202211" target="_blank">5-10</a></div></td></tr>
-              <tr><td class="redips-only J11e"><span style="display: none;">J11e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12412" target="_blank">Enho</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12412&amp;b=202211" target="_blank">10-5</a></span><div id="J11e" class="redips-drag se" data-rid="12412" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J11e Enho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12412&amp;b=202211" target="_blank">10-5</a></div></td><th>J11</th><td class="redips-only J11w"><span style="display: none;">J11w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12114" target="_blank">Takakento</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12114&amp;b=202211" target="_blank">7-8</a></span><div id="J11w" class="redips-drag se" data-rid="12114" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J11w Takakento <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12114&amp;b=202211" target="_blank">7-8</a></div></td></tr>
-              <tr><td class="redips-only J12e"><span style="display: none;">J12e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=11726" target="_blank">Tokushoryu</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11726&amp;b=202211" target="_blank">4-11</a></span><div id="J12e" class="redips-drag se" data-rid="11726" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J12e Tokushoryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11726&amp;b=202211" target="_blank">4-11</a></div></td><th>J12</th><td class="redips-only J12w"><span style="display: none;">J12w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12717" target="_blank">Oshoma</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12717&amp;b=202211" target="_blank">11-4 Y</a></span><div id="J12w" class="redips-drag se" data-rid="12717" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J12w Oshoma <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12717&amp;b=202211" target="_blank">11-4 Y</a></div></td></tr>
-              <tr><td class="redips-only J13e"><span style="display: none;">J13e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12013" target="_blank">Shimazuumi</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12013&amp;b=202211" target="_blank">8-7</a></span><div id="J13e" class="redips-drag se" data-rid="12013" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J13e Shimazuumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12013&amp;b=202211" target="_blank">8-7</a></div></td><th>J13</th><td class="redips-only J13w"><span style="display: none;">J13w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12516" target="_blank">Roga</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12516&amp;b=202211" target="_blank">9-6</a></span><div id="J13w" class="redips-drag se" data-rid="12516" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J13w Roga <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12516&amp;b=202211" target="_blank">9-6</a></div></td></tr>
-              <tr><td class="redips-only J14e"><span style="display: none;">J14e <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12342" target="_blank">Tsushimanada</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12342&amp;b=202211" target="_blank">7-8</a></span><div id="J14e" class="redips-drag se" data-rid="12342" style="background-color: #ffd4d4; border-style: solid; cursor: default;">J14e Tsushimanada <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12342&amp;b=202211" target="_blank">7-8</a></div></td><th>J14</th><td class="redips-only J14w" style=""><span style="display: none;">J14w <a href="https://sumodb.sumogames.de/Rikishi.aspx?r=12688" target="_blank">Gonoyama</a> <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12688&amp;b=202211" target="_blank">9-6</a></span><div id="J14w" class="redips-drag se" data-rid="12688" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J14w Gonoyama <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12688&amp;b=202211" target="_blank">9-6</a></div></td></tr>
-            </tbody>
-          </table>
-        </td><td class="banzukeContainer">
-          <table id="banzuke2" class="mainTable">
-            <thead>
-              <tr>
-                <th class="tableTitle" colspan="5">Hatsu 2023 <s>Guess</s> - <span id="makRik">42</span> rikishi placed</th>
-              </tr>
-              <tr class="theader">
-                <th class="chHead">Chg.</th><th>East</th><th>Rank</th><th>West</th><th class="chHead">Chg.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="san"><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=Y1e&amp;form1_wins=0&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=Y1e" target="_blank" title="Click to run a SumoDB query">─</a></td><td class="redips-only b2" style="border: medium none;"><div id="Y1e" class="redips-drag se" data-rid="11927" style="background-color: #ffd4d4; border-style: solid; cursor: default;">Y1e Terunofuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11927&amp;b=202211" target="_blank">0-0-15</a></div></td><th>Y1</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-              <tr class="san"><td class="ch"> </td><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><th>Y2</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-              <tr class="san"><td class="ch"> </td><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><th>O1</th><td class="redips-only b2" style="border: medium none;"><div id="O1e" class="redips-drag se" data-rid="12191" style="background-color: #c5ffc5; border-style: solid; cursor: default;">O1e Takakeisho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12191&amp;b=202211" target="_blank">12-3 D</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=O1e&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=O1w" target="_blank" title="Click to run a SumoDB query">-0.5</a></td></tr>
-              <tr class="san"><td class="ch"> </td><td class="redips-only b2" style=""></td><th>O2</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-              <tr class="san"><td class="ch"> </td><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><th>O3</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-              <tr class="san"><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S1e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S1e" target="_blank" title="Click to run a SumoDB query">─</a></td><td class="redips-only b2" style="border: medium none;"><div id="S1e" class="redips-drag se" data-rid="12370" style="background-color: #c5ffc5; border-style: solid; cursor: default;">S1e Wakatakakage <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12370&amp;b=202211" target="_blank">8-7</a></div></td><th>S1</th><td class="redips-only b2" style="border: medium none;"><div id="S1w" class="redips-drag se" data-rid="12451" style="background-color: #c5ffc5; border-style: solid; cursor: default;">S1w Hoshoryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12451&amp;b=202211" target="_blank">11-4 G</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S1w&amp;form1_wins=11&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S1w" target="_blank" title="Click to run a SumoDB query">─</a></td></tr>
-              <tr class="san"><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M1e&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S2e" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td><td class="redips-only b2" style="border: medium none;"><div id="M1e" class="redips-drag se" data-rid="6480" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M1e Takayasu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6480&amp;b=202211" target="_blank">12-3 DS</a></div></td><th>S2</th><td class="redips-only b2" style="border: medium none;"><div id="O1w" class="redips-drag se" data-rid="12130" style="background-color: #ffd4d4; border-style: solid; cursor: default;">O1w Shodai <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12130&amp;b=202211" target="_blank">6-9</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=O1w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=S2w" target="_blank" title="Click to run a SumoDB query"> ↓ </a></td></tr>
-              <tr class="san"><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K1w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K1e" target="_blank" title="Click to run a SumoDB query">+0.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="K1w" class="redips-drag se" data-rid="12231" style="background-color: #c5ffc5; border-style: solid; cursor: default;">K1w Kiribayama <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12231&amp;b=202211" target="_blank">8-7</a></div></td><th>K1</th><td class="redips-only b2" style="border: medium none;"><div id="M1w" class="redips-drag se" data-rid="12270" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M1w Kotonowaka <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12270&amp;b=202211" target="_blank">9-6</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M1w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K1w" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td></tr>
-              <tr class="san"><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M2e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K2e" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td><td class="redips-only b2" style="border: medium none;"><div id="M2e" class="redips-drag se" data-rid="11946" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M2e Meisei <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11946&amp;b=202211" target="_blank">9-6</a></div></td><th>K2</th><td class="redips-only b2" style="border: medium none;"><div id="M4e" class="redips-drag se" data-rid="11980" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M4e Wakamotoharu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11980&amp;b=202211" target="_blank">10-5</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M4e&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=K2w" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td></tr>
-
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K2e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M1e" target="_blank" title="Click to run a SumoDB query"> ↓ </a></td><td class="redips-only b2" style="border: medium none;"><div id="K2e" class="redips-drag se" data-rid="12203" style="background-color: #ffd4d4; border-style: solid; cursor: default;">K2e Tobizaru <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12203&amp;b=202211" target="_blank">7-8</a></div></td><th>M1</th><td class="redips-only b2" style="border: medium none;"><div id="K2w" class="redips-drag se" data-rid="11985" style="background-color: #ffd4d4; border-style: solid; cursor: default;">K2w Daieisho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11985&amp;b=202211" target="_blank">7-8</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K2w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M1w" target="_blank" title="Click to run a SumoDB query"> ↓ </a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=S2w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M2e" target="_blank" title="Click to run a SumoDB query"> ↓ </a></td><td class="redips-only b2" style="border: medium none;"><div id="S2w" class="redips-drag se" data-rid="12210" style="background-color: #ffd4d4; border-style: solid; cursor: default;">S2w Mitakeumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12210&amp;b=202211" target="_blank">6-9</a></div></td><th>M2</th><td class="redips-only b2" style="border: medium none;"><div id="K1e" class="redips-drag se" data-rid="5944" style="background-color: #ffd4d4; border-style: solid; cursor: default;">K1e Tamawashi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=5944&amp;b=202211" target="_blank">6-9</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=K1e&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M2w" target="_blank" title="Click to run a SumoDB query"> ↓ </a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M9w&amp;form1_wins=12&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M3e" target="_blank" title="Click to run a SumoDB query">+6.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M9w" class="redips-drag se" data-rid="12094" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M9w Abi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12094&amp;b=202211" target="_blank">12-3 YK</a></div></td><th>M3</th><td class="redips-only b2" style="border: medium none;"><div id="M3w" class="redips-drag se" data-rid="12352" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M3w Midorifuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12352&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M3w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M3w" target="_blank" title="Click to run a SumoDB query">─</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M5w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M4e" target="_blank" title="Click to run a SumoDB query">+1.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M5w" class="redips-drag se" data-rid="12351" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M5w Nishikifuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12351&amp;b=202211" target="_blank">9-6</a></div></td><th>M4</th><td class="redips-only b2" style="border: medium none;"><div id="M4w" class="redips-drag se" data-rid="2879" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M4w Sadanoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=2879&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M4w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M4w" target="_blank" title="Click to run a SumoDB query">─</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M6w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M5e" target="_blank" title="Click to run a SumoDB query">+1.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M6w" class="redips-drag se" data-rid="6594" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M6w Ryuden <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6594&amp;b=202211" target="_blank">9-6</a></div></td><th>M5</th><td class="redips-only b2" style="border: medium none;"><div id="M6e" class="redips-drag se" data-rid="6596" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M6e Nishikigi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6596&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M6e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M5w" target="_blank" title="Click to run a SumoDB query">+0.5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M5e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M6e" target="_blank" title="Click to run a SumoDB query">-1</a></td><td class="redips-only b2" style="border: medium none;"><div id="M5e" class="redips-drag se" data-rid="12239" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M5e Hokutofuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12239&amp;b=202211" target="_blank">7-8</a></div></td><th>M6</th><td class="redips-only b2" style="border: medium none;"><div id="M7w" class="redips-drag se" data-rid="11784" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M7w Myogiryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11784&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M7w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M6w" target="_blank" title="Click to run a SumoDB query">+1</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M2w&amp;form1_wins=4&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M7e" target="_blank" title="Click to run a SumoDB query">-4.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M2w" class="redips-drag se" data-rid="12107" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M2w Ichinojo <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12107&amp;b=202211" target="_blank">4-11</a></div></td><th>M7</th><td class="redips-only b2" style="border: medium none;"><div id="M3e" class="redips-drag se" data-rid="12226" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M3e Ura <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12226&amp;b=202211" target="_blank">4-11</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M3e&amp;form1_wins=4&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M7w" target="_blank" title="Click to run a SumoDB query">-4.5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M11e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M8e" target="_blank" title="Click to run a SumoDB query">+3</a></td><td class="redips-only b2" style="border: medium none;"><div id="M11e" class="redips-drag se" data-rid="12043" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M11e Onosho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12043&amp;b=202211" target="_blank">9-6</a></div></td><th>M8</th><td class="redips-only b2" style="border: medium none;"><div id="M13w" class="redips-drag se" data-rid="12453" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M13w Oho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12453&amp;b=202211" target="_blank">10-5</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M13w&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M8w" target="_blank" title="Click to run a SumoDB query">+5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M9e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M9e" target="_blank" title="Click to run a SumoDB query">─</a></td><td class="redips-only b2" style="border: medium none;"><div id="M9e" class="redips-drag se" data-rid="11855" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M9e Takanosho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11855&amp;b=202211" target="_blank">7-8</a></div></td><th>M9</th><td class="redips-only b2" style="border: medium none;"><div id="M7e" class="redips-drag se" data-rid="12055" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M7e Endo <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12055&amp;b=202211" target="_blank">6-9</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M7e&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M9w" target="_blank" title="Click to run a SumoDB query">-2.5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M10e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M10e" target="_blank" title="Click to run a SumoDB query">─</a></td><td class="redips-only b2" style="border: medium none;"><div id="M10e" class="redips-drag se" data-rid="11786" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M10e Aoiyama <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11786&amp;b=202211" target="_blank">7-8</a></div></td><th>M10</th><td class="redips-only b2" style="border: medium none;"><div id="M16w" class="redips-drag se" data-rid="12314" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M16w Hiradoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12314&amp;b=202211" target="_blank">10-5</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M16w&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M10w" target="_blank" title="Click to run a SumoDB query">+6</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M10w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M11e" target="_blank" title="Click to run a SumoDB query">-0.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M10w" class="redips-drag se" data-rid="11785" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M10w Chiyoshoma <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11785&amp;b=202211" target="_blank">7-8</a></div></td><th>M11</th><td class="redips-only b2" style="border: medium none;"><div id="M8w" class="redips-drag se" data-rid="6599" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M8w Tochinoshin <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6599&amp;b=202211" target="_blank">6-9</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M8w&amp;form1_wins=6&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M11w" target="_blank" title="Click to run a SumoDB query">-3</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M15e&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M12e" target="_blank" title="Click to run a SumoDB query">+3</a></td><td class="redips-only b2" style="border: medium none;"><div id="M15e" class="redips-drag se" data-rid="11845" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M15e Kagayaki <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11845&amp;b=202211" target="_blank">9-6</a></div></td><th>M12</th><td class="redips-only b2" style="border: medium none;"><div id="M13e" class="redips-drag se" data-rid="6463" style="background-color: #c5ffc5; border-style: solid; cursor: default;">M13e Okinoumi <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=6463&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M13e&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M12w" target="_blank" title="Click to run a SumoDB query">+0.5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M11w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M13e" target="_blank" title="Click to run a SumoDB query">-1.5</a></td><td class="redips-only b2" style="border: medium none;"><div id="M11w" class="redips-drag se" data-rid="12449" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M11w Kotoshoho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12449&amp;b=202211" target="_blank">7-8</a></div></td><th>M13</th><td class="redips-only b2" style="border: medium none;"><div id="M12e" class="redips-drag se" data-rid="7153" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M12e Kotoeko <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7153&amp;b=202211" target="_blank">7-8</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M12e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M13w" target="_blank" title="Click to run a SumoDB query">-1.5</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M14e&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M14e" target="_blank" title="Click to run a SumoDB query">─</a></td><td class="redips-only b2" style="border: medium none;"><div id="M14e" class="redips-drag se" data-rid="12362" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M14e Ichiyamamoto <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12362&amp;b=202211" target="_blank">7-8</a></div></td><th>M14</th><td class="redips-only b2" style="border: medium none;"><div id="M14w" class="redips-drag se" data-rid="11723" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M14w Azumaryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11723&amp;b=202211" target="_blank">7-8</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M14w&amp;form1_wins=7&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M14w" target="_blank" title="Click to run a SumoDB query">─</a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J3e&amp;form1_wins=10&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M15e" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td><td class="redips-only b2" style="border: medium none;"><div id="J3e" class="redips-drag se" data-rid="12113" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J3e Tsurugisho <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12113&amp;b=202211" target="_blank">10-5</a></div></td><th>M15</th><td class="redips-only b2" style="border: medium none;"><div id="J3w" class="redips-drag se" data-rid="12406" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J3w Mitoryu <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=12406&amp;b=202211" target="_blank">9-6</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J3w&amp;form1_wins=9&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M15w" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td></tr>
-              <tr><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=M8e&amp;form1_wins=3&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M16e" target="_blank" title="Click to run a SumoDB query">-8</a></td><td class="redips-only b2" style="border: medium none;"><div id="M8e" class="redips-drag se" data-rid="11728" style="background-color: #ffd4d4; border-style: solid; cursor: default;">M8e Takarafuji <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=11728&amp;b=202211" target="_blank">3-12</a></div></td><th>M16</th><td class="redips-only b2" style="border: medium none;"><div id="J1w" class="redips-drag se" data-rid="7240" style="background-color: #c5ffc5; border-style: solid; cursor: default;">J1w Chiyomaru <a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=7240&amp;b=202211" target="_blank">8-7</a></div></td><td class="ch"><a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&amp;form1_rank=J1w&amp;form1_wins=8&amp;form1_year=193905-194401,194905-now&amp;form2_highlight=on&amp;form2_rank=M16w" target="_blank" title="Click to run a SumoDB query"> ↑ </a></td></tr>
-              <tr><td class="ch"> </td><td class="redips-only b2" style=""></td><th>M17</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-              <tr><td class="ch"> </td><td class="redips-only b2" style=""></td><th>M18</th><td class="redips-only b2" style=""></td><td class="ch"> </td></tr>
-              <tr><th class="divider" colspan="5"></th></tr>
-              <tr><td class="ch"> </td><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><th>J</th><td class="redips-only b2" style="border: 1px dashed dimgray;"></td><td class="ch"> </td></tr>
-            </tbody>
-          </table>
-        </td></tr>
-      </tbody></table>
-    </div>
-  <div id="redips_clone" style="height: 1px; width: 1px;"></div></div>
-  <footer>
-    Created by Chiyotasuke
-    <br>
-    Based on Tsuchinoninjin's Helper Page
-  </footer>
-</body></html>
+    <footer>
+      Created by Chiyotasuke
+      <br />
+      Based on Tsuchinoninjin's Helper Page
+    </footer>
+  </body>
+</html>
